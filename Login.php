@@ -1,4 +1,15 @@
-﻿<!doctype html>
+﻿<?php
+        session_start();
+
+        if(isset($_SESSION['usuario'])){
+            header("location: php/bienvenida.php");
+        }
+
+?>
+
+
+
+<!doctype html>
 <html lang="en">
   <head>
   	<title>Cafeteria Web</title>
@@ -24,12 +35,15 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 		      	<h3 class="mb-4 text-center">Have an account?</h3>
-		      	<form action="#" class="signin-form">
+		      	<!-- <form action="#" class="signin-form"> -->
+				  <!-- Verificar si esta bien esto -->
+				  <form action="php/login_usuario_be.php" method="POST" class="formulario__login">
+
 		      		<div class="form-group">
-		      			<input type="text" class="form-control" placeholder="Username" required>
+		      			<input type="text" class="form-control" placeholder="Email" required name="email">
 		      		</div>
 	            <div class="form-group">
-	              <input id="password-field" type="password" class="form-control" placeholder="Password" required>
+	              <input id="password-field" type="password" class="form-control" placeholder="Password"name="password">
 	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 	            </div>
 	            <div class="form-group">
@@ -59,6 +73,9 @@
   <script src="WebStyles3/js/bootstrap.min.js"></script>
   <script src="WebStyles3/js/main.js"></script>
 
+
+
+  <script src="assets/js/script.js"></script>
 	</body>
 </html>
 

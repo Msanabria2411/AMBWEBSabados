@@ -1,3 +1,22 @@
+<?php
+
+    session_start();
+
+    if(!isset($_SESSION['usuario'])){
+        echo '
+            <script>
+            alert("Debes de Iniciar Sesion");
+            window.location = "index.php";
+            </script>
+        ';
+        session_destroy();
+        die();
+    }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -648,5 +667,9 @@
     <script type="text/javascript" src="/WebStyles2/js/google-map.js"></script>
     <script type="text/javascript" src="/WebStyles2/js/main.js"></script>
 
+
+
+
+<script src="assets/js/script.js"></script>
 </body>
 </html>

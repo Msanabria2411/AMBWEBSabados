@@ -4,6 +4,6 @@ CREATE TABLE `cafeteria_db`.`usuarios` (
     `email` VARCHAR(50) NOT NULL,
     `usuario` VARCHAR(50) NOT NULL,
     `telefono` VARCHAR(10) NOT NULL,
-    `password` VARCHAR(50) NOT NULL,
+    `password` VARCHAR(200) NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;

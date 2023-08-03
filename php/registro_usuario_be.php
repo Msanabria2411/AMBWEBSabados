@@ -9,10 +9,10 @@
     $telefono = $_POST['telefono'];
     
  //Password Encryption  
-    $password = hash('sha512', $password);
+    $passwordhash = password_hash($password, PASSWORD_BCRYPT);
 
-    $query = "INSERT INTO usuarios(nombre, email, usuario,telefono, password)
-            VALUES('$nombre', '$email', '$usuario', '$password', '$telefono' )";
+    $query = "INSERT INTO usuarios(nombre_completo, email, usuario, password,telefono)
+            VALUES('$nombre', '$email', '$usuario', '$passwordhash', '$telefono' )";
 
  //Verificar que el correo no se repita en la
 
@@ -22,7 +22,7 @@
         echo '
         <script>
             alert("Este correo ya esta registrado, intenta con otro...");
-            window.location = "../index.php";
+            window.location = "../registro.php";
         </script>    
         ';
         exit();
@@ -35,14 +35,14 @@
         echo '
             <script>
                 alert("Usuario almacenado exitosamente");
-                window.location = "../index.php";
+                window.location = "../Login.php";
             </script>    
         ';
     }else{
         echo '
             <script>
                 alert("Intentalo de nuevo, usuario no almacenado");
-                window.location = "../index.php";
+                window.location = "../Login.php";
             </script>    
         ';
     }

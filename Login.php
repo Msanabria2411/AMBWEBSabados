@@ -56,7 +56,7 @@
 						</div>
 								</div>
 								<div class="w-50 text-md-right">
-									<a href="RecuperarContraseña.html" style="color: #fff">Forgot Password</a>
+									<a href="RecuperarContraseña.php" style="color: #fff">Forgot Password</a>
 								</div>
 	            </div>
 	          </form>

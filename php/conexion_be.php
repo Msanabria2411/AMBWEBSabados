@@ -1,6 +1,6 @@
 <?php
 
-$conexion = mysqli_connect("localhost", "root", "", "login_register_db");
+$conexion = mysqli_connect("localhost", "root", "", "cafeteria_db");
 
 if ($conexion){
     echo "conectado";

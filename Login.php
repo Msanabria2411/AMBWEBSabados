@@ -52,7 +52,7 @@
 	            <div class="form-group d-md-flex">
 	            	<div class="w-50">
 		            	<div class="w-50 text-md-left">
-							<a href="Registro.html" style="color: #fff">Register</a>
+							<a href="Registro.php" style="color: #fff">Register</a>
 						</div>
 								</div>
 								<div class="w-50 text-md-right">

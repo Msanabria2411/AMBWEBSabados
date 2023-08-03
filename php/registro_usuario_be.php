@@ -15,7 +15,7 @@
             VALUES('$nombre', '$email', '$usuario', '$password', '$telefono' )";
 
  //Verificar que el correo no se repita en la
- base de datos
+
     $verificar_correo = mysqli_query($conexion, "SELECT * FROM usuarios WHERE email ='$email' ");
 
     if(mysqli_num_rows($verificar_correo) > 0 ){

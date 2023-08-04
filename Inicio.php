@@ -101,8 +101,9 @@ if (!isset($_SESSION['usuario'])) {
                     <!-- /nav -->
                     <!-- button nav -->
                     <ul class="cta-nav">
-
+                        <li><a href="Administracion.php" class="main-button">Administrar</a></li>
                         <li><a href="php/cerrar_sesion.php" class="main-button">Cerrar Sessión</a></li>
+
                     </ul>
                     <!-- button nav -->
                     <!-- contact nav -->
@@ -845,12 +846,12 @@ if (!isset($_SESSION['usuario'])) {
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </div>
                 <!-- /copyright -->
-            
-            <!-- /row -->
 
-        </div>
+                <!-- /row -->
 
-       
+            </div>
+
+
 
 
 

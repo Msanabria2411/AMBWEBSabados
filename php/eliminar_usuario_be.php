@@ -25,7 +25,7 @@
     }else{
         echo '
             <script>
-                alert("Intentalo de nuevo, usuario no elimino");
+                alert("Intentalo de nuevo, usuario no elimino   ");
                 window.location = "../Administracion.php";
             </script>    
         ';

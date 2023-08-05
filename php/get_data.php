@@ -1,6 +1,6 @@
 <?php
 include 'conexion_be.php';
-function RetornarAlumnos() {
+function RetornarUsuarios() {
     try {
         //1. Estableciendo la conexion
         $conexion2 = Conecta();
@@ -46,7 +46,7 @@ function ImprimirDatos($datos) {
     }
     echo "</table>";
 }
-function RetorneAlumno($id) {
+function RetorneUsuario($id) {
     try {
         //1. Estableciendo la conexion
         $conexion2 = Conecta();

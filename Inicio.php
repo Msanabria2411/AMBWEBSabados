@@ -134,7 +134,7 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="home-content">
                     <h1 class="white-text">Bienvenido a Cafeteria Risotto</h1>
                     <h4 class="white-text lead">Donde los Sabores se Despliegan</h4>
-                    <a id="AboutUs" href="index.php#menu"><button class="main-button">Descubre el Menú</button></a>
+                    <a id="AboutUs" href="#OurMenu"><button class="main-button">Descubre el Menú</button></a>
                 </div>
             </div>
 
@@ -795,12 +795,12 @@ if (!isset($_SESSION['usuario'])) {
             <!-- row -->
             <div class="row">
 
-                <div class="col-md-5 col-md-offset-7">
-                    <div class="section-header">
+                <div class="col-md-5 col-md-offset-4">
+                    <div class="section-header text-center">
                         <h4 id="ContactUs" class="sub-title">Contactanos</h4>
                         <h2 class="title">Ponte en contacto</h2>
                     </div>
-                    <div class="contact-content">
+                    <div class="contact-content text-center">
                         <p>Si tienes alguna pregunta, sugerencia o simplemente quieres decirnos algo, no dudes en
                             ponerte en contacto con nosotros. Estamos encantados de escucharte y brindarte la mejor
                             experiencia en nuestro acogedor espacio.</p>

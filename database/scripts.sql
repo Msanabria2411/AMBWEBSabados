@@ -7,3 +7,10 @@ CREATE TABLE `cafeteria_db`.`usuarios` (
     `password` VARCHAR(200) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+CREATE TABLE `cafeteria_db`.`menu` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(50) ,
+    `descripcion` VARCHAR(100) ,
+    `precio` int(6) ,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;

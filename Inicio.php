@@ -277,306 +277,41 @@ if (!isset($_SESSION['usuario'])) {
 
                     <!-- menu1 -->
                     <div id="menu1" class="tab-pane fade in active">
-                        <div class="col-md-6">
-
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Bruschetta de tomate y albahaca</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Rebanadas de pan tostado cubiertas con tomate fresco picado, ajo, albahaca, aceite de
-                                    oliva, sal y pimienta.</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Carpaccio de salmón con vinagreta de limón</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Finas láminas de salmón crudo marinado con limón, aceite de oliva, alcaparras,
-                                    cebolla roja y hojas de rúcula.</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Ensalada de quinoa con aguacate y aderezo de cilantro</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Ensalada de quinoa cocida con aguacate, tomate, pepino, cebolla morada y una
-                                    vinagreta de cilantro y limón.</p>
-                            </div>
-
-
-                        </div>
-
-                        <div class="col-md-6">
-
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Arancini</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Bolitas de arroz cocido rellenas de ragú de carne, guisantes y mozzarella, luego
-                                    empanizadas y fritas hasta que queden crujientes por fuera y cremosas por dentro.
-                                </p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Prosciutto e Melone</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Una combinación clásica de lonchas finas de jamón prosciutto italiano servidas con
-                                    trozos dulces de melón, como cantalupo o melón verde.</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Crostini con tapenade de aceitunas</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Rebanadas de pan tostado untadas con una mezcla de aceitunas, alcaparras, anchoas,
-                                    ajo, aceite de oliva y hierbas, un aperitivo sabroso y fácil de preparar.</p>
-                            </div>
-
-
-                        </div>
+                        
+                            <?php
+                            //imprimir  menu1
+                            require_once 'php/menuDinamico.php';
+                            RetornarMenu1();
+                            ?>
+                      
+                        
 
                     </div>
                     <!-- /menu1 -->
                     <div id="menu2" class="tab-pane fade">
-                        <div class="col-md-6">
-
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Espresso</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Un fuerte café concentrado preparado al pasar agua caliente a alta presión a través
-                                    de café molido fino..</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Latte</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Una bebida de café hecha con espresso y leche caliente con una pequeña capa de espuma
-                                    en la parte superior.</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Té de hierbas</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Infusión de hierbas naturales sin cafeína, como manzanilla, menta, jengibre o frutas.
-                                </p>
-                            </div>
-
-
-                        </div>
-
-                        <div class="col-md-6">
-
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Aperol Spritz</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Un refrescante cóctel italiano que combina Aperol (licor de color naranja), vino
-                                    espumoso y agua con gas. Se sirve con hielo y se adorna con una rodaja de naranja.
-                                </p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Limoncello</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Un licor de limón dulce y fuerte originario de Italia, elaborado a partir de la
-                                    cáscara de limones, alcohol y azúcar. Se sirve frío como digestivo después de las
-                                    comidas.</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Granita</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p> Una bebida helada y granulada similar a un sorbete, elaborada con agua, azúcar y
-                                    diversos sabores naturales como limón, café, fresa o albahaca. Es perfecta para
-                                    refrescarse en días calurosos.</p>
-                            </div>
-
-
-                        </div>
+                            <?php
+                            //imprimir  menu2
+                            require_once 'php/menuDinamico.php';
+                            RetornarMenu2();
+                            ?>
 
                     </div>
                     <!-- /menu2 -->
                     <div id="menu3" class="tab-pane fade">
-                        <div class="col-md-6">
-
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Risotto de champiñones con parmesano</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Arroz arborio cocido lentamente con caldo de vegetales, champiñones salteados,
-                                    cebolla, ajo, vino blanco, mantequilla y queso parmesano rallado.</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Pechuga de pollo a la parrilla con salsa de mostaza y miel</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Pechuga de pollo marinada con mostaza y miel, luego a la parrilla hasta obtener un
-                                    dorado perfecto.</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Lasagna de vegetales con salsa de tomate y mozzarella</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Capas de pasta de lasaña con una mezcla de vegetales salteados, salsa de tomate
-                                    casera y queso mozzarella derretido.
-                                </p>
-                            </div>
-
-
-                        </div>
-
-                        <div class="col-md-6">
-
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Saltimbocca alla Romana</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Delgadas y tiernas lonchas de ternera o pollo, cubiertas con hojas de salvia fresca y
-                                    lonchas de jamón prosciutto, todo ello sujetado con un palillo. Luego, se doran en
-                                    una sartén con mantequilla y vino blanco. Se sirven con una deliciosa salsa hecha de
-                                    los jugos de la cocción.</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Pizza Margherita</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Deliciosa y reconfortante, nuestra clásica receta italiana combina una fina masa de
-                                    pizza horneada a la perfección con auténtica salsa de tomate y queso mozzarella
-                                    derretido</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Osso Buco alla Milanese</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p> Rodajas gruesas de jarrete de ternera cocidas a fuego lento con cebolla, zanahoria,
-                                    apio, ajo, tomate, caldo de carne y vino blanco. Se sirven con gremolata, una mezcla
-                                    de ralladura de limón, ajo y perejil.</p>
-                            </div>
-
-
-                        </div>
-
+                    <?php
+                            //imprimir  menu3
+                            require_once 'php/menuDinamico.php';
+                            RetornarMenu3();
+                            ?>
                     </div>
                     <!-- /menu3 -->
                     <div id="menu4" class="tab-pane fade">
-                        <div class="col-md-6">
-
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Tiramisú casero</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Un postre italiano hecho con capas de bizcochos de soletilla empapados en café, crema
-                                    de mascarpone y cacao en polvo espolvoreado.</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Brownie de chocolate con helado de vainilla</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Brownies de chocolate ricos y húmedos,
-                                    servidos con una bola de helado de vainilla.
-                                </p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Cheesecake de frutos rojos</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p> Pastel de queso cremoso horneado, adornado con una mezcla de frutos rojos (fresas,
-                                    frambuesas, arándanos) y un toque de jarabe.
-                                </p>
-                            </div>
-
-
-                        </div>
-
-                        <div class="col-md-6">
-
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Cannoli</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Tubos de masa frita rellenos de una mezcla de ricota endulzada con azúcar, vainilla y
-                                    a menudo adornados con trozos de chocolate o frutas confitadas.</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Panna Cotta</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p>Un postre de crema dulce y delicada, similar a un flan, que se sirve generalmente con
-                                    una salsa de frutos rojos o caramelo.</p>
-                            </div>
-                            <!-- /single dish -->
-                            <!-- single dish -->
-                            <div class="single-dish">
-                                <div class="single-dish-heading">
-                                    <h4 class="name">Tarta de ricota y limón</h4>
-                                    <h4 class="price">₡3500</h4>
-                                </div>
-                                <p> Una tarta de queso elaborada con ricota, huevos, azúcar, ralladura y jugo de limón,
-                                    horneada hasta que esté dorada.</p>
-                            </div>
-
-
-                        </div>
-
+                        
+                    <?php
+                            //imprimir  menu4
+                            require_once 'php/menuDinamico.php';
+                            RetornarMenu4();
+                    ?>
                     </div>
                     <!-- /menu4 -->
                 </div>

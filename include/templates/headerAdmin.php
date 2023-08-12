@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Restaurante Risotto</title>
-
+    <link type="text/css" rel="stylesheet" href="CSS/normalize.css" />
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700%7CCabin:400%7CDancing+Script"
         rel="stylesheet">

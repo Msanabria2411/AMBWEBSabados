@@ -29,3 +29,30 @@
 .styled-table tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
+
+  .star-rating {
+    font-size: 24px;
+    direction: rtl;
+  }
+  .star-rating input {
+    display: none;
+  }
+  .star-rating label {
+    cursor: pointer;
+    color: gray;
+  }
+  .star-rating input:checked ~ label,
+  .star-rating input:checked ~ label ~ label {
+    color: gold;
+  }
+  .alerta {
+    padding: 0.5rem;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    display: block;
+}
+
+.alerta.error{
+    background-color: #c20000;
+}

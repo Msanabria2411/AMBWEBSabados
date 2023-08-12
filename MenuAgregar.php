@@ -34,17 +34,17 @@ incluirTemplate('headerAdmin');
             <div>
                 <H2>Agregar Platillo</H2>
                 <div class="login-wrap p-0">
-                    <form action="php/registroMenu.php" method="POST" class="formulario__register">
+                    <form action="php/registroMenu.php"  method="POST" class="formulario__register">
 
                         <div class="form-group">
-                            <input type="text"  placeholder="Nombre" name="nombre">
+                            <input type="text" id="nombre" placeholder="Nombre" name="nombre">
                         </div>
 
                         <div class="form-group">
                             <textarea name="descripcion" id="descripcion" rows="4" cols="50" placeholder='Descripcion' ></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="text"  placeholder="Precio" name="precio">
+                            <input type="text" id="precio" placeholder="Precio" name="precio">
                         </div>
                         <div class="form-group">
                             <select name="tipos" id="tipos">
@@ -55,7 +55,7 @@ incluirTemplate('headerAdmin');
                             </select>
                         </div>
                         <div class="form-group">
-                            <button type="submit" >Agregar</button>
+                            <button id="botonM" type="submit" >Agregar</button>
                         </div>
 
 
@@ -81,7 +81,7 @@ incluirTemplate('headerAdmin');
     <!-- Contact -->
 
 
-
+    
 
     <?php
 

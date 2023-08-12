@@ -29,6 +29,7 @@ if (!isset($_SESSION['usuario'])) {
     <title>Restaurante Risotto</title>
 
     <!-- Google font -->
+    <link type="text/css" rel="stylesheet" href="CSS/normalize.css" />
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700%7CCabin:400%7CDancing+Script"
         rel="stylesheet">
 
@@ -44,7 +45,8 @@ if (!isset($_SESSION['usuario'])) {
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="WebStyles2/css/style.css" />
-
+   
+    <link type="text/css" rel="stylesheet" href="CSS/tablestyles.css" />
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -277,41 +279,41 @@ if (!isset($_SESSION['usuario'])) {
 
                     <!-- menu1 -->
                     <div id="menu1" class="tab-pane fade in active">
-                        
-                            <?php
-                            //imprimir  menu1
-                            require_once 'php/menuDinamico.php';
-                            RetornarMenu1();
-                            ?>
-                      
-                        
+
+                        <?php
+                        //imprimir  menu1
+                        require_once 'php/menuDinamico.php';
+                        RetornarMenu1();
+                        ?>
+
+
 
                     </div>
                     <!-- /menu1 -->
                     <div id="menu2" class="tab-pane fade">
-                            <?php
-                            //imprimir  menu2
-                            require_once 'php/menuDinamico.php';
-                            RetornarMenu2();
-                            ?>
+                        <?php
+                        //imprimir  menu2
+                        require_once 'php/menuDinamico.php';
+                        RetornarMenu2();
+                        ?>
 
                     </div>
                     <!-- /menu2 -->
                     <div id="menu3" class="tab-pane fade">
-                    <?php
-                            //imprimir  menu3
-                            require_once 'php/menuDinamico.php';
-                            RetornarMenu3();
-                            ?>
+                        <?php
+                        //imprimir  menu3
+                        require_once 'php/menuDinamico.php';
+                        RetornarMenu3();
+                        ?>
                     </div>
                     <!-- /menu3 -->
                     <div id="menu4" class="tab-pane fade">
-                        
-                    <?php
-                            //imprimir  menu4
-                            require_once 'php/menuDinamico.php';
-                            RetornarMenu4();
-                    ?>
+
+                        <?php
+                        //imprimir  menu4
+                        require_once 'php/menuDinamico.php';
+                        RetornarMenu4();
+                        ?>
                     </div>
                     <!-- /menu4 -->
                 </div>
@@ -341,54 +343,62 @@ if (!isset($_SESSION['usuario'])) {
                 <div class="col-md-6 col-md-offset-1 col-sm-10 col-sm-offset-1">
                     <form class="reserve-form row">
                         <div class="section-header text-center">
-                            <h4 id="Reservation" class="sub-title">Reservación</h4>
-                            <h2 class="title white-text">Reserva para actividades</h2>
+                            <h4 id="Reservation" class="sub-title">Valoranos</h4>
+                            <h2 class="title white-text">Puntua nuestos sevicios</h2>
                         </div>
-
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Nombre:</label>
-                                <input class="input" type="text" placeholder="Nombre" id="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Telefono:</label>
-                                <input class="input" type="tel" placeholder="Telefono" id="phone">
-                            </div>
-                            <div class="form-group">
-                                <label for="date">Fecha:</label>
-                                <input class="input" type="text" placeholder="MM/DD/YYYY" id="date">
-                            </div>
-                            <div class="form-group">
-                                <label for="time">Time:</label>
-                                <input class="input" type="text" placeholder="HH:MM" id="time">
-                            </div>
-                        </div>
+                                <label for="name">Servicio</label>
 
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input class="input" type="email" placeholder="Email" id="email">
+                                <div class="star-rating">
+                                    <input type="radio" id="star1" name="rating" value="1" />
+                                    <label for="star1">&#9733;</label>
+                                    <input type="radio" id="star2" name="rating" value="2" />
+                                    <label for="star2">&#9733;</label>
+                                    <input type="radio" id="star3" name="rating" value="3" />
+                                    <label for="star3">&#9733;</label>
+                                    <input type="radio" id="star4" name="rating" value="4" />
+                                    <label for="star4">&#9733;</label>
+                                    <input type="radio" id="star5" name="rating" value="5" />
+                                    <label for="star5">&#9733;</label>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="service">Tipo de servicio:</label>
-                                <select class="input" id="service">
-                                    <option value="1">Barra de Postres</option>
-                                    <option value="1">Barra de Postres</option>
-                                    <option value="2">Buffet de platos fuertes</option>
-                                    <option value="3">Barra de bebidas</option>
-                                    <option value="4">Buffet de Entradas</option>
+                                <label for="name">Comida</label>
 
-                                </select>
+                                <div class="star-rating">
+                                    <input type="radio" id="star1C" name="ratingC" value="1" />
+                                    <label for="star1C">&#9733;</label>
+                                    <input type="radio" id="star2C" name="ratingC" value="2" />
+                                    <label for="star2C">&#9733;</label>
+                                    <input type="radio" id="star3C" name="ratingC" value="3" />
+                                    <label for="star3C">&#9733;</label>
+                                    <input type="radioC" id="star4C" name="ratingC" value="4" />
+                                    <label for="star4">&#9733;</label>
+                                    <input type="radio" id="star5C" name="ratingC" value="5" />
+                                    <label for="star5C">&#9733;</label>
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="number">Cantidad de Invitados:</label>
-                                <input class="input" type="tel" placeholder="Telefono" id="phone">
+                                <label for="name">Bebidas</label>
+
+                                <div class="star-rating">
+                                    <input type="radio" id="star1B" name="ratingB" value="1" />
+                                    <label for="star1B">&#9733;</label>
+                                    <input type="radio" id="star2B" name="ratingB" value="2" />
+                                    <label for="star2B">&#9733;</label>
+                                    <input type="radio" id="star3B" name="ratingB" value="3" />
+                                    <label for="star3B">&#9733;</label>
+                                    <input type="radio" id="star4B" name="ratingB" value="4" />
+                                    <label for="star4B">&#9733;</label>
+                                    <input type="radio" id="star5B" name="ratingB" value="5" />
+                                    <label for="star5B">&#9733;</label>
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-12 text-center">
-                            <button class="main-button">Reservar</button>
+                            <button class="main-button">ENVIAR</button>
                         </div>
 
                     </form>

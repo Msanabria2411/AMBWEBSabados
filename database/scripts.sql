@@ -14,3 +14,11 @@ CREATE TABLE `cafeteria_db`.`menu` (
     `precio` int(6) ,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+CREATE TABLE `cafeteria_db`.`eventos` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `nombre` VARCHAR(50) ,
+    `descripcion` VARCHAR(100) ,
+    `fecha` DATE,
+    `hora` TIME,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;

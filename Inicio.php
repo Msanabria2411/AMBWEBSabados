@@ -95,9 +95,9 @@ if (!isset($_SESSION['usuario'])) {
                         <li><a href="Inicio.php">Inicio</a></li>
                         <li><a href="#AboutUs">Sobre Nosotros</a></li>
                         <li><a href="#OurMenu">Menú</a></li>
-                        <li><a href="#Reservation">Reservación</a></li>
+                        <li><a href="#Reservation">Puntúanos</a></li>
                         <li><a href="#Galeria">Galleria</a></li>
-                        <li><a href="#ContactUs">Contactenos</a></li>
+                        <li><a href="#contact">Contactenos</a></li>
 
                     </ul>
                     <!-- /nav -->

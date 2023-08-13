@@ -1,7 +1,4 @@
 <?php
-
-
-
 function RetornarEves() {
     try {
         //1. Estableciendo la conexion
@@ -23,7 +20,6 @@ function RetornarEves() {
         Desconecta($conexion2);
     }
 }
-
 function ImprimirDatosEventos($datos) {
    
     if($datos->num_rows > 0){
@@ -38,8 +34,8 @@ function ImprimirDatosEventos($datos) {
             echo '</div>';
             echo '<div class="event-content">';
             echo "<p><i class='fa fa-clock-o'></i>{$row['hora']}</p>";
-            echo"<h3><a href=''></a>{$row['nombre']}</h3>";
-            echo"<p>{$row['descripcion']}</p>";
+            echo "<h3><a href=''></a>{$row['nombre']}</h3>";
+            echo "<p>{$row['descripcion']}</p>";
             echo '</div>';
             echo '</div>';
             echo '</div>';
@@ -50,5 +46,4 @@ function ImprimirDatosEventos($datos) {
     }
     
 }
-
 ?>

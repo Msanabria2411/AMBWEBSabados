@@ -22,3 +22,19 @@ CREATE TABLE `cafeteria_db`.`eventos` (
     `hora` TIME,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB;
+CREATE TABLE carrito_de_compras (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT,
+    producto VARCHAR(255) NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10, 2) NOT NULL,
+    subtotal DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);ENGINE = InnoDB;
+CREATE TABLE facturas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT,
+    monto DECIMAL(10, 2) NOT NULL,
+    fecha DATE NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);ENGINE = InnoDB;

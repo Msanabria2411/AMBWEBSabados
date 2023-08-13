@@ -1,4 +1,29 @@
 <?php
+$aCarrito = array();
+$sHTML = '';
+
+// Obtenemos los productos anteriores
+if(isset($_COOKIE['carrito'])) {
+	$aCarrito = unserialize($_COOKIE['carrito']);
+}
+
+// Añado un nuevo artículo al carrito
+if(isset($_GET['nombre']) && isset($_GET['precio'])) {
+	$iUltimaPos = count($aCarrito);
+	$aCarrito[$iUltimaPos]['nombre'] = $_GET['nombre'];
+	$aCarrito[$iUltimaPos]['precio'] = $_GET['precio'];
+}
+
+// Creamos la cookie (serializamos)
+$iTemCad = time() + (60 * 60);
+setcookie('carrito', serialize($aCarrito), $iTemCad);
+
+// Imprimimos el contenido del array
+foreach ($aCarrito as $key => $value) {
+	$sHTML .= '-> ' . $value['nombre'] . ' ' . $value['precio'] . '<br>';
+}
+
+
 
 session_start();
 
@@ -264,9 +289,13 @@ if (!isset($_SESSION['usuario'])) {
                     <h2 id="OurMenu" class="title white-text">Nuestro Menú</h2>
                 </div>
 
+                <div>
+		            <?php echo $sHTML; ?>
+	            </div>
+
                 <!-- menu nav -->
                 <ul class="menu-nav">
-                    <li class="active"><a data-toggle="tab" href="#menu1">Entradas</a></li>
+                    <li class="active"><a data-toggle="tab" href="#menu1">Entradassssss</a></li>
                     <li><a data-toggle="tab" href="#menu2">Bebidas</a></li>
                     <li><a data-toggle="tab" href="#menu3">Platos Fuertes</a></li>
                     <li><a data-toggle="tab" href="#menu4">Postres</a></li>
@@ -284,10 +313,14 @@ if (!isset($_SESSION['usuario'])) {
                                 <div class="single-dish-heading">
                                     <h4 class="name">Bruschetta de tomate y albahaca</h4>
                                     <h4 class="price">₡3500</h4>
+                                    <a href="test.php?nombre=Bruschetta&precio=3500">Agregar al carrito</a>
+                                    <div class="single-dish">
                                 </div>
                                 <p>Rebanadas de pan tostado cubiertas con tomate fresco picado, ajo, albahaca, aceite de
                                     oliva, sal y pimienta.</p>
-                            </div>
+                            </div> 
+</div>
+
                             <!-- /single dish -->
                             <!-- single dish -->
                             <div class="single-dish">

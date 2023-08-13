@@ -297,7 +297,7 @@ if (!isset($_SESSION['usuario'])) {
 
                 <!-- menu nav -->
                 <ul class="menu-nav">
-                    <li class="active"><a data-toggle="tab" href="#menu1">Entradassssss</a></li>
+                    <li class="active"><a data-toggle="tab" href="#menu1">Entradas</a></li>
                     <li><a data-toggle="tab" href="#menu2">Bebidas</a></li>
                     <li><a data-toggle="tab" href="#menu3">Platos Fuertes</a></li>
                     <li><a data-toggle="tab" href="#menu4">Postres</a></li>
@@ -314,7 +314,7 @@ if (!isset($_SESSION['usuario'])) {
                         require_once 'php/menuDinamico.php';
                         RetornarMenu1();
                         ?>
-                            
+                    </div>       
                     <!-- /menu1 -->
                     <div id="menu2" class="tab-pane fade">
                         <?php

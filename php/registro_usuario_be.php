@@ -10,9 +10,9 @@
     
  //Password Encryption  
     $passwordhash = password_hash($password, PASSWORD_BCRYPT);
-
-    $query = "INSERT INTO usuarios(nombre_completo, email, usuario, password,telefono)
-            VALUES('$nombre', '$email', '$usuario', '$passwordhash', '$telefono' )";
+ 
+    $query = "INSERT INTO usuarios(nombre_completo, email, usuario, password,telefono,tipo)
+            VALUES('$nombre', '$email', '$usuario', '$passwordhash', '$telefono', 0 )";
 
  //Verificar que el correo no se repita en la
 
@@ -22,7 +22,7 @@
         echo '
         <script>
             alert("Este correo ya esta registrado, intenta con otro...");
-            window.location = "../registro.php";
+            window.location = "../Registro.php";
         </script>    
         ';
         exit();
@@ -42,7 +42,7 @@
         echo '
             <script>
                 alert("Intentalo de nuevo, usuario no almacenado");
-                window.location = "../Login.php";
+                window.location = "../Registro.php";
             </script>    
         ';
     }

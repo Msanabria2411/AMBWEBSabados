@@ -5,7 +5,7 @@ function RetornarUsuarios() {
         //1. Estableciendo la conexion
         $conexion2 = Conecta();
         //2. Ejecutar la consulta
-        $resultado = $conexion2->query("select id, nombre_completo, email, telefono from usuarios");
+        $resultado = $conexion2->query("select id, nombre_completo, email,usuario,telefono,tipo from usuarios");
 
         if($conexion2->error != ""){
             echo "Ocurrió un error al ejecutar la consulta : $conexion2->error";
@@ -26,7 +26,9 @@ function ImprimirDatos($datos) {
     echo "<tr>";
     echo "<th>Nombre</th>";
     echo "<th>Correo</th>";
+    echo "<th>Usuario</th>";
     echo "<th>Teléfono</th>";
+    echo "<th>Tipo</th>";
     echo "<th>Acciones</th>";
     echo "</tr>";
 
@@ -35,8 +37,13 @@ function ImprimirDatos($datos) {
             echo "<tr>";
             echo "<td>{$row['nombre_completo']}</td>";
             echo "<td>{$row['email']}</td>";
+            echo "<td>{$row['usuario']}</td>";
             echo "<td>{$row['telefono']}</td>";
-
+            if($row['tipo'] == 0){
+                echo "<td>Cliente</td>";
+            }else{
+                echo "<td>Administrador</td>";
+            }
             echo "<td><a href=\"mostrar.php?id={$row['id']}\">Mostrar</a></td>";
 
             echo "</tr>";
@@ -51,7 +58,7 @@ function RetorneUsuario($id) {
         //1. Estableciendo la conexion
         $conexion2 = Conecta();
         //2. Ejecutar la consulta
-        $resultado = $conexion2->query("select id, nombre_completo, email, telefono from usuarios where id = $id");
+        $resultado = $conexion2->query("select id, nombre_completo, email,usuario,telefono,tipo from usuarios where id = $id");
 
         if($conexion2->error != ""){
             echo "Ocurrió un error al ejecutar la consulta : $conexion2->error";
@@ -64,9 +71,14 @@ function RetorneUsuario($id) {
    echo '<input type="text" name="nombre_completo" id="nombre_completo" value="'.$datos["nombre_completo"].'"><br>';  
    echo '<label for="email">Email: </label>';
    echo '<input type="email" name="email" id="email" value="'.$datos["email"].'"><br>'; 
+   echo '<label for="user">Usuario: </label>';
+   echo '<input type="text" name="user" id="user" value="'.$datos["usuario"].'"><br>'; 
    echo '<label for="telefono">Teléfono:</label>';  
    echo '<input type="number" name="telefono" id="telefono" value="'.$datos["telefono"].'"><br>';  
-    
+   echo '<select name="tipos" id="tipos">
+         <option value="0"'.isSelected($datos["tipo"], "0").'>Cliente</option>
+         <option value="1"'.isSelected($datos["tipo"], "1").'>Administrador</option>
+         </select><br>' ; 
 
     } catch (\Throwable $th) {
         //echo $th;
@@ -77,6 +89,10 @@ function RetorneUsuario($id) {
     }finally{
         Desconecta($conexion2);
     }
+}
+function isSelected($valorActual, $valorDeseado) {
+    $valorR = $valorActual === $valorDeseado ? "selected" : " ";
+    return $valorR;
 }
 function recogeGet($var, $m ="")
 {

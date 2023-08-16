@@ -4,9 +4,11 @@
     $id = $_POST['id'];
     $nombre = $_POST['nombre_completo'];
     $email = $_POST['email'];
+    $user = $_POST['user'];
     $telefono = $_POST['telefono']; 
- //Password Encryption  
-    $query = "UPDATE usuarios SET nombre_completo = '$nombre', email = '$email', telefono= '$telefono' WHERE ID = '$id';";
+    $tipos=$_POST['tipos'];
+  
+    $query = "UPDATE usuarios SET nombre_completo = '$nombre', email = '$email',user = '$user', telefono= '$telefono',tipo='$tipos', WHERE ID = '$id';";
  //Verificar que el correo no se repita en la 
     $ejecutar = mysqli_query($conexion2, $query);
 
@@ -22,7 +24,7 @@
         echo '
             <script>
                 alert("Intentalo de nuevo, usuario no actualizado");
-                window.location = "../Administracion.php";
+                window.location = "../Mostrar.php";
             </script>    
         ';
     }

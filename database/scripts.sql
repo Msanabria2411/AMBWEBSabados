@@ -1,27 +1,30 @@
-CREATE TABLE `cafeteria_db`.`usuarios` (
-    `id` INT(11) NOT NULL AUTO_INCREMENT,
-    `nombre_completo` VARCHAR(50) ,
-    `email` VARCHAR(50) ,
-    `usuario` VARCHAR(50) ,
-    `telefono` VARCHAR(10) ,
-    `password` VARCHAR(200) ,
-    PRIMARY KEY (`id`)
-) ENGINE = InnoDB;
-CREATE TABLE `cafeteria_db`.`menu` (
-    `id` INT(11) NOT NULL AUTO_INCREMENT,
-    `nombre` VARCHAR(50) ,
-    `descripcion` VARCHAR(100) ,
-    `precio` int(6) ,
-    PRIMARY KEY (`id`)
-) ENGINE = InnoDB;
-CREATE TABLE `cafeteria_db`.`eventos` (
-    `id` INT(11) NOT NULL AUTO_INCREMENT,
-    `nombre` VARCHAR(50) ,
-    `descripcion` VARCHAR(100) ,
-    `fecha` DATE,
-    `hora` TIME,
-    PRIMARY KEY (`id`)
-) ENGINE = InnoDB;
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(200) DEFAULT NULL,
+  `precio` int(6) DEFAULT NULL,
+  `tipo` smallint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_completo` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `usuario` varchar(50) DEFAULT NULL,
+  `telefono` varchar(10) DEFAULT NULL,
+  `tipo` smallint(1) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
+CREATE TABLE `eventos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `hora` time DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
+
 INSERT INTO menu (nombre, descripcion, precio)
 VALUES 
     ('Bruschetta', 'Pan tostado con tomate y albahaca.', 3500),

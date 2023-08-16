@@ -128,7 +128,11 @@ if (!isset($_SESSION['usuario'])) {
                     <!-- /nav -->
                     <!-- button nav -->
                     <ul class="cta-nav">
-                        <li><a href="Administracion.php" class="main-button">Administrar</a></li>
+                        <?php
+                        if($_SESSION['tipo']=="1"){
+                           echo '<li><a href="Administracion.php" class="main-button">Administrar</a></li>' ;
+                        }
+                        ?>   
                         <li><a href="php/cerrar_sesion.php" class="main-button">Cerrar Sessión</a></li>
 
                     </ul>

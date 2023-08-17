@@ -371,11 +371,12 @@ if (!isset($_SESSION['usuario'])) {
 
                 <!-- reservation form -->
                 <div class="col-md-6 col-md-offset-1 col-sm-10 col-sm-offset-1">
-                    <form class="reserve-form row">
+                    <div class="reserve-form row">
                         <div class="section-header text-center">
                             <h4 id="Reservation" class="sub-title">Valoranos</h4>
                             <h2 class="title white-text">Puntua nuestos sevicios</h2>
                         </div>
+                    <form action="php/registroPuntuacion.php" method="post">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">Servicio</label>
@@ -403,7 +404,7 @@ if (!isset($_SESSION['usuario'])) {
                                     <label for="star2C">&#9733;</label>
                                     <input type="radio" id="star3C" name="ratingC" value="3" />
                                     <label for="star3C">&#9733;</label>
-                                    <input type="radioC" id="star4C" name="ratingC" value="4" />
+                                    <input type="radio" id="star4C" name="ratingC" value="4" />
                                     <label for="star4">&#9733;</label>
                                     <input type="radio" id="star5C" name="ratingC" value="5" />
                                     <label for="star5C">&#9733;</label>
@@ -428,10 +429,11 @@ if (!isset($_SESSION['usuario'])) {
                         </div>
 
                         <div class="col-md-12 text-center">
-                            <button class="main-button">ENVIAR</button>
+                            <button class="main-button" type="submit">ENVIAR</button>
                         </div>
 
                     </form>
+                    </div>
                 </div>
                 <!-- /reservation form -->
                 <!-- opening time -->

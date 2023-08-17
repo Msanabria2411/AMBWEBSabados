@@ -24,7 +24,14 @@ CREATE TABLE `eventos` (
   `hora` time DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
-
+CREATE TABLE `criticas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `servicio` smallint(1) DEFAULT NULL,
+  `comida` smallint(1) DEFAULT NULL,
+  `bebidas` smallint(1) DEFAULT NULL,
+  `usuario` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
 INSERT INTO menu (nombre, descripcion, precio)
 VALUES 
     ('Bruschetta', 'Pan tostado con tomate y albahaca.', 3500),

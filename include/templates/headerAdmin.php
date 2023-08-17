@@ -65,6 +65,7 @@
                         <li><a href="Administracion.php">Usuarios</a></li>
                         <li><a href="Eventos.php">Eventos</a></li>
                         <li><a href="Menu.php">Menu</a></li>
+                        <li><a href="Puntuacion.php">Puntuaciones</a></li>
                         <li><a href="Pedidos.php">Pedidos</a></li>
 
 

@@ -29,7 +29,7 @@ function ImprimirDatos($datos) {
     echo "<th>Servicio</th>";
     echo "<th>Comida</th>";
     echo "<th>Bebida</th>";
-    echo "<th>Hora</th>";
+    echo "<th>Usuario</th>";
     echo "<th>Acciones</th>";
     echo "</tr>";
 

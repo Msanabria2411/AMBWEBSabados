@@ -382,15 +382,15 @@ if (!isset($_SESSION['usuario'])) {
                                 <label for="name">Servicio</label>
 
                                 <div class="star-rating">
-                                    <input type="radio" id="star1" name="rating" value="1" />
+                                    <input type="radio" id="star1" name="rating" value="5" />
                                     <label for="star1">&#9733;</label>
-                                    <input type="radio" id="star2" name="rating" value="2" />
+                                    <input type="radio" id="star2" name="rating" value="4" />
                                     <label for="star2">&#9733;</label>
                                     <input type="radio" id="star3" name="rating" value="3" />
                                     <label for="star3">&#9733;</label>
-                                    <input type="radio" id="star4" name="rating" value="4" />
+                                    <input type="radio" id="star4" name="rating" value="2" />
                                     <label for="star4">&#9733;</label>
-                                    <input type="radio" id="star5" name="rating" value="5" />
+                                    <input type="radio" id="star5" name="rating" value="1" />
                                     <label for="star5">&#9733;</label>
                                 </div>
                             </div>
@@ -398,15 +398,15 @@ if (!isset($_SESSION['usuario'])) {
                                 <label for="name">Comida</label>
 
                                 <div class="star-rating">
-                                    <input type="radio" id="star1C" name="ratingC" value="1" />
+                                    <input type="radio" id="star1C" name="ratingC" value="5" />
                                     <label for="star1C">&#9733;</label>
-                                    <input type="radio" id="star2C" name="ratingC" value="2" />
+                                    <input type="radio" id="star2C" name="ratingC" value="4" />
                                     <label for="star2C">&#9733;</label>
                                     <input type="radio" id="star3C" name="ratingC" value="3" />
                                     <label for="star3C">&#9733;</label>
-                                    <input type="radio" id="star4C" name="ratingC" value="4" />
+                                    <input type="radio" id="star4C" name="ratingC" value="2" />
                                     <label for="star4">&#9733;</label>
-                                    <input type="radio" id="star5C" name="ratingC" value="5" />
+                                    <input type="radio" id="star5C" name="ratingC" value="1" />
                                     <label for="star5C">&#9733;</label>
                                 </div>
                             </div>
@@ -414,15 +414,15 @@ if (!isset($_SESSION['usuario'])) {
                                 <label for="name">Bebidas</label>
 
                                 <div class="star-rating">
-                                    <input type="radio" id="star1B" name="ratingB" value="1" />
+                                    <input type="radio" id="star1B" name="ratingB" value="5" />
                                     <label for="star1B">&#9733;</label>
-                                    <input type="radio" id="star2B" name="ratingB" value="2" />
+                                    <input type="radio" id="star2B" name="ratingB" value="4" />
                                     <label for="star2B">&#9733;</label>
                                     <input type="radio" id="star3B" name="ratingB" value="3" />
                                     <label for="star3B">&#9733;</label>
-                                    <input type="radio" id="star4B" name="ratingB" value="4" />
+                                    <input type="radio" id="star4B" name="ratingB" value="2" />
                                     <label for="star4B">&#9733;</label>
-                                    <input type="radio" id="star5B" name="ratingB" value="5" />
+                                    <input type="radio" id="star5B" name="ratingB" value="1" />
                                     <label for="star5B">&#9733;</label>
                                 </div>
                             </div>

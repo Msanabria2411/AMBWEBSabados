@@ -1,4 +1,34 @@
--- TABLA USUARIO
+CREATE TABLE `carrito` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cantidad` int(11) DEFAULT NULL,
+  `id_Menu` int(11) DEFAULT NULL,
+  `usuario` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
+CREATE TABLE `criticas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `servicio` smallint(1) DEFAULT NULL,
+  `comida` smallint(1) DEFAULT NULL,
+  `bebidas` smallint(1) DEFAULT NULL,
+  `usuario` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
+CREATE TABLE `eventos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `fecha` date DEFAULT NULL,
+  `hora` time DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(200) DEFAULT NULL,
+  `precio` int(6) DEFAULT NULL,
+  `tipo` smallint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_completo` varchar(50) DEFAULT NULL,
@@ -8,55 +38,7 @@ CREATE TABLE `usuarios` (
   `tipo` smallint(1) DEFAULT NULL,
   `password` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
-
--- TABLA PRODUCTO
-CREATE TABLE `productos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(50) DEFAULT NULL,
-  `descripcion` varchar(200) DEFAULT NULL,
-  `precio` int(6) DEFAULT NULL,
-  `tipo` smallint(1) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
-
---TABLA COMPRA
-CREATE TABLE 'compra'(
-  'idCompra' int(11) NOT NULL AUTO_INCREMENT,
-  'idUsuario' int(11) NOT NULL,
-  'Precio_total' int(11) NOT NULL,
-  'fecha' date NOT NULL,
-  PRIMARY KEY ('id')
-  FOREIGN KEY ('idUsuario') REFERENCES 'usaurios'('id')
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
-
---TABLA COMPRA_PRODUCTO
-CREATE TABLE 'compra_producto'(
-  'idCompraProducto' int(11) NOT NULL AUTO_INCREMENT,
-  'idCompra' int(11) NOT NULL,
-  'idProducto' int(11) NOT NULL
-  PRIMARY KEY ('idCompraProducto')
-  FOREIGN KEY ('idCompra') REFERENCES 'compra'('idCompra'),
-  FOREIGN KEY ('idproducto') REFERENCES 'productos'('idProducto')
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
-
-
--- CREATE TABLE `eventos` (
---   `id` int(11) NOT NULL AUTO_INCREMENT,
---   `nombre` varchar(50) DEFAULT NULL,
---   `descripcion` varchar(100) DEFAULT NULL,
---   `fecha` date DEFAULT NULL,
---   `hora` time DEFAULT NULL,
---   PRIMARY KEY (`id`)
--- ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
--- CREATE TABLE `criticas` (
---   `id` int(11) NOT NULL AUTO_INCREMENT,
---   `servicio` smallint(1) DEFAULT NULL,
---   `comida` smallint(1) DEFAULT NULL,
---   `bebidas` smallint(1) DEFAULT NULL,
---   `usuario` varchar(50) DEFAULT NULL,
---   PRIMARY KEY (`id`)
--- ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_estonian_ci
 -- INSERT INTO menu (nombre, descripcion, precio)
 -- VALUES 
 --     ('Bruschetta', 'Pan tostado con tomate y albahaca.', 3500),

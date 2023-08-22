@@ -100,7 +100,7 @@ function ImprimirDatos($datos,$nMitad) {
            echo "<h4 class='price'>₡{$row['precio']}</h4>";
            echo "</div>";
            echo "<p>{$row['descripcion']}</p>";
-           echo "<a href=\"test.php?id={$row['id']}\">Agregar Carrito</a>";
+           echo "<a href='#OurMenu' onclick='agregarAlCarrito({$row['id']})'>Agregar Carrito</a>";
            echo "</div>";
            $filasR++;
         }
@@ -121,7 +121,7 @@ function ImprimirDatos2($datos,$mitad) {
            echo "<h4 class='price'>₡{$row['precio']}</h4>";
            echo "</div>";
            echo "<p>{$row['descripcion']}</p>";
-           echo "<a href=\"test.php?id={$row['id']}\">Agregar Carrito</a>";
+           echo "<a href='#OurMenu' onclick='agregarAlCarrito({$row['id']})'>Agregar Carrito</a>";
            echo "</div>";
            
         }

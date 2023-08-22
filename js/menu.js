@@ -147,3 +147,11 @@ function mostrarAlerta(mensaje, tipo) {
         alerta.remove();
     }, 3000);
 }
+function agregarAlCarrito(menuId) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "php/RegistroCarrito.php?id=" + menuId, true);
+    xhr.onreadystatechange = function() {
+     
+    };
+    xhr.send();
+  }

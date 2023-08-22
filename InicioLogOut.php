@@ -1,27 +1,110 @@
-<?php
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Restaurante Risotto</title>
+
+    <!-- Google font -->
+    <link type="text/css" rel="stylesheet" href="CSS/normalize.css" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700%7CCabin:400%7CDancing+Script"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="WebStyles2/css/bootstrap.min.css" />
+
+    <!-- Owl Carousel -->
+    <link type="text/css" rel="stylesheet" href="WebStyles2/css/owl.carousel.css" />
+    <link type="text/css" rel="stylesheet" href="WebStyles2/css/owl.theme.default.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="WebStyles2/css/font-awesome.min.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="WebStyles2/css/style.css" />
+   
+    <link type="text/css" rel="stylesheet" href="CSS/tablestyles.css" />
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+
+        <!-- Top nav -->
+        <div id="top-nav">
+            <div class="container">
+
+                <!-- logo -->
+                <div class="logo">
+                    <a href="Inicio.php"><img src="WebStyles2/img/logo.png" alt="logo"></a>
+                </div>
+                <!-- logo -->
+                <!-- Mobile toggle -->
+                <button class="navbar-toggle">
+                    <span></span>
+                </button>
+                <!-- Mobile toggle -->
+                <!-- social links -->
+                <ul class="social-nav">
+                    <li><a href="https://es-la.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.google.com/?hl=es"><i class="fa fa-google-plus"></i></a></li>
+                    <!-- /social links -->
+
+            </div>
+        </div>
+        <!-- /Top nav -->
+        <!-- Bottom nav -->
+        <div id="bottom-nav">
+            <div class="container">
+                <nav id="nav">
+
+                    <!-- nav -->
+                    <ul class="main-nav nav navbar-nav">
+                        <li><a href="Inicio.php">Inicio</a></li>
+                        <li><a href="#AboutUs">Sobre Nosotros</a></li>
+                        <li><a href="#OurMenu">Menú</a></li>
+                        <li><a href="#Reservation">Puntúanos</a></li>
+                        <li><a href="#Galeria">Galleria</a></li>
+                        <li><a href="#contact">Contactenos</a></li>
+
+                    </ul>
+                    <!-- /nav -->
+                    <!-- button nav -->
+                    <ul class="cta-nav">
+                        <?php
+                        if($_SESSION['tipo']=="1"){
+                           echo '<li><a href="Administracion.php" class="main-button">Administrar</a></li>' ;
+                        }
+                        ?>   
+                        <li><a href="php/cerrar_sesion.php" class="main-button">Cerrar Sessión</a></li>
+
+                    </ul>
+                    <!-- button nav -->
+                    <!-- contact nav -->
+
+                    <!-- contact nav -->
+
+                </nav>
+            </div>
+        </div>
+        <!-- /Bottom nav -->
 
 
-
-session_start();
-
-if (!isset($_SESSION['usuario'])) {
-    echo '
-            <script>
-            alert("Debes de Iniciar Sesion");
-            window.location = "Login.php";
-            </script>
-        ';
-    session_destroy();
-    die();
-}
-require 'include/funciones.php';
-
-incluirTemplate('headerMain');
-
-?>
-
-
-
+    </header>
     <!-- /Header -->
     <!-- Home -->
     <div id="home" class="banner-area">
@@ -169,7 +252,7 @@ incluirTemplate('headerMain');
                     <h2 id="OurMenu" class="title white-text">Nuestro Menú</h2>
                 </div>
 
-
+                
                 <!-- menu nav -->
                 <ul class="menu-nav">
                     <li class="active"><a data-toggle="tab" href="#menu1">Entradas</a></li>
@@ -411,9 +494,55 @@ incluirTemplate('headerMain');
 
     </div>
     <!-- Contact -->
-    <?php
+    <!-- Footer -->
+    <footer id="footer">
 
-//include 'include/template/footer.php';
-incluirTemplate('footerAdmin');
+        <!-- container -->
+        <div class="container">
 
-?>
+            <!-- row -->
+            <div class="row">
+
+                <!-- copyright -->
+                <div class="col-md-6">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <span class="copyright">Copyright 2023 Todos los derechos reservados | Ufidelitas
+                    </span>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+                <!-- /copyright -->
+
+                <!-- /row -->
+
+            </div>
+
+
+
+
+
+    </footer>
+    <!-- /Footer -->
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- /Preloader -->
+    <!-- jQuery Plugins -->
+    <script type="text/javascript" src="WebStyles2/js/jquery.min.js"></script>
+    <script type="text/javascript" src="WebStyles2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="WebStyles2/js/owl.carousel.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript" src="WebStyles2/js/google-map.js"></script>
+    <script type="text/javascript" src="WebStyles2/js/main.js"></script>
+
+
+
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

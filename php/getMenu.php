@@ -1,7 +1,60 @@
 <?php
 include 'conexion_be.php';
 
+function registroMenu($nombre,$descripcion,$precio,$tipo){
+    $retorno = false;
+    try {
+        //1. Estableciendo la conexion
+        $conexion2 = Conecta();
+        //2. Ejecutar la consulta
+        if(mysqli_set_charset($conexion2, "utf8")){
+            $stmt = $conexion2->prepare("INSERT INTO menu(nombre, descripcion, precio, tipo) VALUES(?,?,?,?)");
+            $stmt->bind_param("ssss", $iNombre,$iDescripcion,$iPrecio,$iTipo);
 
+            //set parametros y la ejecución
+            $iNombre = $nombre;
+            $iDescripcion = $descripcion;
+            $iPrecio = $precio;
+            $iTipo = $tipo;
+            if($stmt->execute()){
+                $retorno = true;
+            }
+        }
+
+    } catch (\Throwable $th) {
+        
+    }finally{
+        Desconecta($conexion2);
+    }
+    return $retorno;
+}
+function actualizarMenu($nombre,$descripcion,$precio,$tipo,$id){
+    $retorno = false;
+    try {
+        //1. Estableciendo la conexion
+        $conexion2 = Conecta();
+        //2. Ejecutar la consulta
+        if(mysqli_set_charset($conexion2, "utf8")){
+            $stmt = $conexion2->prepare("UPDATE menu SET nombre = ?, descripcion = ?, precio= ?,tipo=? WHERE ID = '$id';"); 
+            $stmt->bind_param("ssss", $iNombre,$iDescripcion,$iPrecio,$iTipo);
+
+            //set parametros y la ejecución
+            $iNombre = $nombre;
+            $iDescripcion = $descripcion;
+            $iPrecio = $precio;
+            $iTipo = $tipo;
+            if($stmt->execute()){
+                $retorno = true;
+            }
+        }
+
+    } catch (\Throwable $th) {
+        
+    }finally{
+        Desconecta($conexion2);
+    }
+    return $retorno;
+}
 function RetornarPlatillos() {
     try {
         //1. Estableciendo la conexion
@@ -72,12 +125,13 @@ function RetornePlatillo($id) {
         //Mostrar los datos
         $datos = $resultado->fetch_assoc();
  
-   echo '<label for="nombre">Nombre:  </label>';
+   echo '<label for="nombre">Nombre:  </label><br>';
    echo '<input type="text" name="nombre" id="nombre" value="'.$datos["nombre"].'"><br>';  
    echo '<label for="descripcion">Descripción: </label><br>';
    echo '<textarea name="descripcion" id="descripcion" rows="4" cols="50" >'.$datos["descripcion"].'</textarea><br>';
-   echo '<label for="precio">Precio:</label>';  
+   echo '<label for="precio">Precio:</label><br>';  
    echo '<input type="number" name="precio" id="precio" value="'.$datos["precio"].'"><br>'; 
+   echo '<label for="tipos">Tipos:</label><br>';
    echo '<select name="tipos" id="tipos">
          <option value="1"'.isSelected($datos["tipo"], "1").'>Entrada</option>
          <option value="2"'.isSelected($datos["tipo"], "2").'>Bebida</option>
@@ -99,27 +153,5 @@ function isSelected($valorActual, $valorDeseado) {
     $valorR = $valorActual === $valorDeseado ? "selected" : " ";
     return $valorR;
 }
-function recogeGet($var, $m ="")
-{
-    //isset devuelve false null
-    if(!isset($_GET[$var])){
-        //is_array 
-        $tmp = (is_array($m)) ? [] : "";
-    }elseif (!is_array($_GET[$var])){
-        //trim recortar caracteres en blanco al inicio y al final
-        //htmlspecialchars convierte caracteres en entidades html
-        // ENT_COMPAT: predeterminado. Codificar comillas dobles
-        // ENT_QUOTES - Codifica comillas dobles como simples
-        // ENT_NOQUOTES - no codifica comillas
-        $tmp = trim(htmlspecialchars($_GET[$var], ENT_QUOTES, "UTF-8"));
-    }else{
-        $tmp = $_GET[$var];
-        //array_walk_recursive recorrer la matriz
-        array_walk_recursive($tmp, function (&$valor)
-        {
-            $valor = trim(htmlspecialchars($valor, ENT_QUOTES, "UTF-8"));
-        });
-    }
-    return $tmp;
-}
+
 ?>

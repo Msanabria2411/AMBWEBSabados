@@ -15,7 +15,51 @@ if (!isset($_SESSION['usuario'])) {
 require 'include/funciones.php';
 
 incluirTemplate('headerAdmin');
+$errores = [];
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once 'include/funciones/recogeRequests.php';
+
+    $nombre = recogePost("nombre");
+    $descripcion = recogePost("descripcion");
+    $precio = recogePost("precio");
+    $tipos = recogePost("tipos");
+    //Investigar expresiones regulares para validar telefono y correo
+    $nombreOK = false;
+    $descripcionOK = false;
+    $precioOK = false;
+    $tiposOK = false;
+    if ($nombre === "") {
+        $errores[] = "No se digitó el nombre del platillo";
+    } else {
+        $nombreOK = true;
+    }
+
+    if ($descripcion === "") {
+        $errores[] = "No se digitó ninguna descriocion";
+    } else {
+        $descripcionOK = true;
+    }
+
+    if ($precio === "") {
+        $errores[] = "No se digitó el precio del platillo";
+    } else {
+        $precioOK = true;
+    }
+    if ($tipos === "") {
+        $errores[] = "Sin tipo";
+    } else {
+        $tiposOK = true;
+    }
+
+    if ($nombreOK && $descripcionOK && $precioOK && $tiposOK) {
+        //inserción de datos
+        require_once 'php/getMenu.php';
+        if (registroMenu($nombre, $descripcion, $precio,$tipos)) {
+            header("Location: Menu.php");
+        }
+    }
+}
 ?>
 
 <!-- About -->
@@ -34,7 +78,8 @@ incluirTemplate('headerAdmin');
             <div>
                 <H2>Agregar Platillo</H2>
                 <div class="login-wrap p-0">
-                    <form action="php/registroMenu.php"  method="POST" class="formulario__register">
+                
+                    <form  method="POST" class="formulario__register">
 
                         <div class="form-group">
                             <input type="text" id="nombre" placeholder="Nombre" name="nombre">
@@ -55,12 +100,16 @@ incluirTemplate('headerAdmin');
                             </select>
                         </div>
                         <div class="form-group">
-                            <button id="botonM" type="submit" >Agregar</button>
+                            <button type="submit" >Agregar</button>
                         </div>
 
 
                     </form>
-
+                    <?php foreach($errores as $error): ?>
+                    <div class="alerta error">
+                        <?php echo $error; ?>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 

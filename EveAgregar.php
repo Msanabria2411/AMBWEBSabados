@@ -15,7 +15,51 @@ if (!isset($_SESSION['usuario'])) {
 require 'include/funciones.php';
 
 incluirTemplate('headerAdmin');
+$errores = [];
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once 'include/funciones/recogeRequests.php';
+
+    $nombre = recogePost("nombre");
+    $descripcion = recogePost("descripcion");
+    $fecha = recogePost("fecha");
+    $hora = recogePost("hora");
+    //Investigar expresiones regulares para validar telefono y correo
+    $nombreOK = false;
+    $descripcionOK = false;
+    $fechaOK = false;
+    $horaOK = false;
+    if ($nombre === "") {
+        $errores[] = "No se digitó el nombre del platillo";
+    } else {
+        $nombreOK = true;
+    }
+
+    if ($descripcion === "") {
+        $errores[] = "No se digitó ninguna descriocion";
+    } else {
+        $descripcionOK = true;
+    }
+
+    if ($fecha === "") {
+        $errores[] = "No se digitó el precio del platillo";
+    } else {
+        $fechaOK = true;
+    }
+    if ($hora === "") {
+        $errores[] = "Sin tipo";
+    } else {
+        $horaOK = true;
+    }
+
+    if ($nombreOK && $descripcionOK && $fechaOK && $horaOK) {
+        //inserción de datos
+        require_once 'php/getEve.php';
+        if (registroEve($nombre, $descripcion, $fecha,$hora)) {
+            header("Location: Menu.php");
+        }
+    }
+}
 ?>
 
 <!-- About -->
@@ -34,7 +78,7 @@ incluirTemplate('headerAdmin');
             <div>
                 <H2>Agregar Evento</H2>
                 <div class="login-wrap p-0">
-                    <form action="php/registroEve.php"  method="POST" class="formulario__register">
+                    <form method="POST" class="formulario__register">
 
                         <div class="form-group">
                             <input type="text" id="nombre" placeholder="Nombre" name="nombre">

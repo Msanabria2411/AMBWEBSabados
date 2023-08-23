@@ -1,7 +1,7 @@
 <?php
 session_start();
-
-require_once 'get_data.php';
+include 'conexion_be.php';
+require_once '../include/funciones/recogeRequests.php';
 $idM = recogeGet('id');
 $user= $_SESSION['usuario'];
 $cantidad=1;

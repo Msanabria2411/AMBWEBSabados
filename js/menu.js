@@ -149,7 +149,7 @@ function mostrarAlerta(mensaje, tipo) {
 }
 function agregarAlCarrito(menuId) {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "php/RegistroCarrito.php?id=" + menuId, true);
+    xhr.open("POST", "php/registroCarrito.php?id=" + menuId, true);
     xhr.onreadystatechange = function() {
      
     };

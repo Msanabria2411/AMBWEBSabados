@@ -1,7 +1,60 @@
 <?php
 include 'conexion_be.php';
 
+function registroEve($nombre,$descripcion,$fecha,$hora){
+    $retorno = false;
+    try {
+        //1. Estableciendo la conexion
+        $conexion2 = Conecta();
+        //2. Ejecutar la consulta
+        if(mysqli_set_charset($conexion2, "utf8")){
+            $stmt = $conexion2->prepare("INSERT INTO eventos(nombre, descripcion, fecha, hora) VALUES(?,?,?,?)");
+            $stmt->bind_param("ssss", $iNombre,$iDescripcion,$iFecha,$iHora);
 
+            //set parametros y la ejecución
+            $iNombre = $nombre;
+            $iDescripcion = $descripcion;
+            $iFecha = $fecha;
+            $iHora = $hora;
+            if($stmt->execute()){
+                $retorno = true;
+            }
+        }
+
+    } catch (\Throwable $th) {
+        
+    }finally{
+        Desconecta($conexion2);
+    }
+    return $retorno;
+}
+function actualizarEve($nombre,$descripcion,$fecha,$hora,$id){
+    $retorno = false;
+    try {
+        //1. Estableciendo la conexion
+        $conexion2 = Conecta();
+        //2. Ejecutar la consulta
+        if(mysqli_set_charset($conexion2, "utf8")){
+            $stmt = $conexion2->prepare("UPDATE eventos SET nombre = ?, descripcion = ?, fecha= ?,hora=? WHERE ID = '$id';"); 
+            $stmt->bind_param("ssss", $iNombre,$iDescripcion,$iFecha,$iHora);
+
+            //set parametros y la ejecución
+            $iNombre = $nombre;
+            $iDescripcion = $descripcion;
+            $iFecha = $fecha;
+            $iHora = $hora;
+            if($stmt->execute()){
+                $retorno = true;
+            }
+        }
+
+    } catch (\Throwable $th) {
+        
+    }finally{
+        Desconecta($conexion2);
+    }
+    return $retorno;
+}
 function RetornarEventos() {
     try {
         //1. Estableciendo la conexion
@@ -83,27 +136,5 @@ function RetorneEve($id) {
     }
 }
 
-function recogeGet($var, $m ="")
-{
-    //isset devuelve false null
-    if(!isset($_GET[$var])){
-        //is_array 
-        $tmp = (is_array($m)) ? [] : "";
-    }elseif (!is_array($_GET[$var])){
-        //trim recortar caracteres en blanco al inicio y al final
-        //htmlspecialchars convierte caracteres en entidades html
-        // ENT_COMPAT: predeterminado. Codificar comillas dobles
-        // ENT_QUOTES - Codifica comillas dobles como simples
-        // ENT_NOQUOTES - no codifica comillas
-        $tmp = trim(htmlspecialchars($_GET[$var], ENT_QUOTES, "UTF-8"));
-    }else{
-        $tmp = $_GET[$var];
-        //array_walk_recursive recorrer la matriz
-        array_walk_recursive($tmp, function (&$valor)
-        {
-            $valor = trim(htmlspecialchars($valor, ENT_QUOTES, "UTF-8"));
-        });
-    }
-    return $tmp;
-}
+
 ?>

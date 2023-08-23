@@ -76,7 +76,7 @@ function RetorneItem($id) {
         //Mostrar los datos
         $datos = $resultado->fetch_assoc();
  
-   echo '<label for="cantidad">Cantidad:  </label>';
+   echo '<label for="cantidad">Cantidad:  </label><br>';
    echo '<input type="number" name="cantidad" id="cantidad" min="1" value="'.$datos["cantidad"].'"><br>';  
    
 

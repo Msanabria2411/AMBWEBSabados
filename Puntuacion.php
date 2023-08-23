@@ -34,7 +34,7 @@ incluirTemplate('headerAdmin');
             <br>
             <br>
             <div>
-                <H2>Lista Platillos</H2>
+                <H2>Puntuaciones</H2>
                
                 <?php
                 //imprimir los alumnos

@@ -1,7 +1,33 @@
 <?php
 include 'conexion_be.php';
 
+function registroPuntuacion($r1,$r2,$r3,$user){
+    $retorno = false;
+    try {
+        //1. Estableciendo la conexion
+        $conexion2 = Conecta();
+        //2. Ejecutar la consulta
+        if(mysqli_set_charset($conexion2, "utf8")){
+            $stmt = $conexion2->prepare("INSERT INTO criticas(servicio, comida, bebidas, usuario) VALUES(?,?,?,?)");
+            $stmt->bind_param("ssss", $iR1,$iR2,$iR3,$iUser);
 
+            //set parametros y la ejecución
+            $iR1 = $r1;
+            $iR2 = $r2;
+            $iR3 = $r3;
+            $iUser = $user;
+            if($stmt->execute()){
+                $retorno = true;
+            }
+        }
+
+    } catch (\Throwable $th) {
+        
+    }finally{
+        Desconecta($conexion2);
+    }
+    return $retorno;
+}
 function RetornarPuntuacion() {
     try {
         //1. Estableciendo la conexion
@@ -48,27 +74,5 @@ function ImprimirDatos($datos) {
     }
     echo "</table>";
 }
-function recogeGet($var, $m ="")
-{
-    //isset devuelve false null
-    if(!isset($_GET[$var])){
-        //is_array 
-        $tmp = (is_array($m)) ? [] : "";
-    }elseif (!is_array($_GET[$var])){
-        //trim recortar caracteres en blanco al inicio y al final
-        //htmlspecialchars convierte caracteres en entidades html
-        // ENT_COMPAT: predeterminado. Codificar comillas dobles
-        // ENT_QUOTES - Codifica comillas dobles como simples
-        // ENT_NOQUOTES - no codifica comillas
-        $tmp = trim(htmlspecialchars($_GET[$var], ENT_QUOTES, "UTF-8"));
-    }else{
-        $tmp = $_GET[$var];
-        //array_walk_recursive recorrer la matriz
-        array_walk_recursive($tmp, function (&$valor)
-        {
-            $valor = trim(htmlspecialchars($valor, ENT_QUOTES, "UTF-8"));
-        });
-    }
-    return $tmp;
-}
+
 ?>

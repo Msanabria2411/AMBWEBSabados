@@ -17,7 +17,47 @@ if (!isset($_SESSION['usuario'])) {
 require 'include/funciones.php';
 
 incluirTemplate('headerMain');
+$errores = [];
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once 'include/funciones/recogeRequests.php';
+
+    $r1 = recogePost("rating");
+    $r2 = recogePost("ratingC");
+    $r3 = recogePost("ratingB");
+    $user = $_SESSION['usuario'];
+    //Investigar expresiones regulares para validar telefono y correo
+    $r1OK = false;
+    $r2OK = false;
+    $r3OK = false;
+    
+    if ($r1 === "") {
+        $errores[] = "No se digitó el nombre del platillo";
+    } else {
+        $r1OK = true;
+    }
+
+    if ($r2 === "") {
+        $errores[] = "No se digitó ninguna descriocion";
+    } else {
+        $r2OK = true;
+    }
+
+    if ($r3 === "") {
+        $errores[] = "No se digitó el precio del platillo";
+    } else {
+        $r3OK = true;
+    }
+   
+
+    if ($r1OK && $r2OK && $r3OK) {
+        //inserción de datos
+        require_once 'php/getPuntuacion.php';
+        if (registroPuntuacion($r1, $r2, $r3,$user)) {
+            header("Location: Inicio.php");
+        }
+    }
+}
 ?>
 
 
@@ -247,7 +287,7 @@ incluirTemplate('headerMain');
                             <h4 id="Reservation" class="sub-title">Valoranos</h4>
                             <h2 class="title white-text">Puntua nuestos sevicios</h2>
                         </div>
-                    <form action="php/registroPuntuacion.php" method="post">
+                    <form  method="post">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">Servicio</label>

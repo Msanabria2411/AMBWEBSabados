@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //inserción de datos
         require_once 'php/getEve.php';
         if (registroEve($nombre, $descripcion, $fecha,$hora)) {
-            header("Location: Menu.php");
+            header("Location: Eventos.php");
         }
     }
 }
@@ -99,7 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
                     </form>
-
+                    <?php foreach($errores as $error): ?>
+                    <div class="alerta error">
+                        <?php echo $error; ?>
+                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 

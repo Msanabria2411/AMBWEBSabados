@@ -1,7 +1,7 @@
 <?php
 
-    
-    include 'getPuntuacion.php';
+    include 'conexion_be.php';
+    require_once '../include/funciones/recogeRequests.php';
     $conexion = Conecta();
     $id = recogeGet('id');
                             

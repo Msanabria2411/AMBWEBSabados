@@ -74,10 +74,10 @@
                     <!-- nav -->
                     <ul class="main-nav nav navbar-nav">
                         <li><a href="Inicio.php">Inicio</a></li>
-                        <li><a href="#AboutUs">Sobre Nosotros</a></li>
-                        <li><a href="#OurMenu">Menú</a></li>
-                        <li><a href="#Reservation">Puntúanos</a></li>
-                        <li><a href="#contact">Contactenos</a></li>
+                        <li><a href="Inicio.php#AboutUs">Sobre Nosotros</a></li>
+                        <li><a href="Inicio.php#OurMenu">Menú</a></li>
+                        <li><a href="Inicio.php#Reservation">Puntúanos</a></li>
+                        <li><a href="Inicio.php#contact">Contactenos</a></li>
                         <li><a href="Carrito.php">Carrito</a></li>
 
                     </ul>

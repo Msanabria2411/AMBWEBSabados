@@ -1,7 +1,5 @@
 <?php
 
-
-
 session_start();
 
 if (!isset($_SESSION['usuario'])) {
@@ -17,15 +15,6 @@ if (!isset($_SESSION['usuario'])) {
 require 'include/funciones.php';
 
 incluirTemplate('headerMain');
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $usuario = $_SESSION['usuario'];
-        //inserción de datos
-        require_once 'php/getFactura.php';
-        if (registroFactura($usuario)) {
-            header("Location: Factura.php");
-        }
-    }
 
 ?>
 <div>
@@ -48,20 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <br>
             <br>
             <div>
-                <H2>Carrito</H2>
+                <H2>Factura</H2>
                 <?php
-                require_once 'php/getCarrito.php';
-                RetornarCarrito();
+                require_once 'php/getFactura.php';
+                RetornarFactUser();
                 ?>
-                <div>
-                    <form class="total"method="post">
-                       
-                        <button class="main-button" type="submit">Pagar</button>
-                    </form>
-                   
-                    
+                <div class="total">
+                <a class="main-button" href="Inicio.php">Regresar</a>
                 </div>
-
             </div>
 
 

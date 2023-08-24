@@ -57,7 +57,6 @@ function ImprimirDatos($datos) {
     echo "</table>";
     echo "<div class='total'>";
     echo "<h2 >{$sum}</h2>";
-    echo "<a href='Factura.php' class='main-button'>Pagar</a>";
     echo "</div>";
     
 }

@@ -29,25 +29,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $descripcionOK = false;
     $precioOK = false;
     $tiposOK = false;
+        
     if ($nombre === "") {
-        $errores[] = "No se digitó el nombre del platillo";
+        $errores[] = "No se ingresó el nombre del platillo. Por favor, ingrese un nombre.";
+    } elseif (strlen($nombre) > 100) {
+        $errores[] = "El nombre del platillo es demasiado largo. Debe tener 100 caracteres o menos.";
     } else {
         $nombreOK = true;
     }
 
+    
     if ($descripcion === "") {
-        $errores[] = "No se digitó ninguna descriocion";
+        $errores[] = "No se ingresó ninguna descripción del platillo. Por favor, agregue una descripción.";
     } else {
         $descripcionOK = true;
     }
 
+    
     if ($precio === "") {
-        $errores[] = "No se digitó el precio del platillo";
+        $errores[] = "No se ingresó el precio del platillo. Por favor, ingrese un precio.";
+    } elseif (!is_numeric($precio) || $precio <= 0) {
+        $errores[] = "El precio debe ser un número positivo.";
     } else {
         $precioOK = true;
     }
+
+    
     if ($tipos === "") {
-        $errores[] = "Sin tipo";
+        $errores[] = "No se seleccionó ningún tipo de platillo. Por favor, elija un tipo.";
     } else {
         $tiposOK = true;
     }

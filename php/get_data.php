@@ -1,5 +1,73 @@
 <?php
 include 'conexion_be.php';
+
+
+function RegistroUsuario($usuario,$nombre_completo,$password,$email,$telefono) {
+
+    $retorno = false;
+    try {
+        //1. Estableciendo la conexion
+        $conexion2 = Conecta();
+        //2. Ejecutar la consulta
+        if(mysqli_set_charset($conexion2, "utf8")){
+            $stmt = $conexion2->prepare("INSERT INTO usuarios(usuario, nombre_completo, password, email,telefono) VALUES(?,?,?,?, ?)");
+            $stmt->bind_param("sssss", $usuario,$nombre_completo,$password,$email,$telefono);
+
+            //set parametros y la ejecución
+            $iUsuario= $usuario;
+            $iNombre_completo = $nombre_completo;
+            $iPassword  = $password;
+            $iEmail = $email;
+            $iTelefono = $telefono;
+            if($stmt->execute()){
+                $retorno = true;
+            }
+        }
+
+    } catch (\Throwable $th) {
+        
+    }finally{
+        Desconecta($conexion2);
+    }
+    return $retorno;
+}
+
+
+
+
+function ActualizarUsuario($id) {
+
+
+    $retorno = false;
+    try {
+        //1. Estableciendo la conexion
+        $conexion2 = Conecta();
+        //2. Ejecutar la consulta
+        if(mysqli_set_charset($conexion2, "utf8")){
+            $stmt = $conexion2->prepare("UPDATE into usuarios(id)VALUES(?)");
+            $stmt->bind_param("s", $id,);
+
+            //set parametros y la ejecución
+            $iId= $id;
+            if($stmt->execute()){
+                $retorno = true;
+            }
+        }
+
+    } catch (\Throwable $th) {
+        
+    }finally{
+        Desconecta($conexion2);
+    }
+    return $retorno;
+}
+
+
+
+
+
+
+
 function RetornarUsuarios() {
     try {
         //1. Estableciendo la conexion

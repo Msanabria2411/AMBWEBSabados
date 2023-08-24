@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($usuarioOK && $nombre_completoOK && $passwordOk && $emailOK && $telefonoOK) {
         //inserción de datos
         require_once 'php/get_data.php';
-        if (registroMenu($usuario, $nombre_completo, $password,$email,$telefono )) {
+        if (RegistroUsuario($usuario, $nombre_completo, $password,$email,$telefono )) {
             header("Location: Login.php");
         }
     }

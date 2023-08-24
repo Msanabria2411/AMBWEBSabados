@@ -16,7 +16,36 @@ if (!isset($_SESSION['usuario'])) {
 require 'include/funciones.php';
 
 incluirTemplate('headerAdmin');
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once 'include/funciones/recogeRequests.php';
+
+    $id = recogePost("id");
+   
+
+    $idOK = false;
+   
+
+	if ($id === "") {
+		$errores[] = "No se ingresó el Id Correcto: el campo de Id está vacío.";
+	} elseif (strlen($id) > 50) {
+		$errores[] = "El id ingresado es demasiado largo, debe tener 50 caracteres o menos.";
+	} else {
+		$idOK = true;
+    }
+
+    if ($idOK) {
+        //inserción de datos
+        require_once 'php/get_data.php';
+        if (ActualizarUsuario($id)) {
+            header("Location: Login.php");
+        }
+    }
+}
 ?>
+
+
 
 
 
@@ -49,8 +78,8 @@ incluirTemplate('headerAdmin');
                             <input type="text" name="id" id="id" value="<?= $id ?>" hidden>
                             <button class="boton-rojo" type="submit">Actualizar</button>
                         </form>
-                        <form action="php/eliminar_usuario_be.php" method="post">
-                            <!-- novalidate cuando no se quiere la validación html5 -->
+                        <form method="post">
+                            <!-- Borramos el action -->
 
                             <input type="text" name="id" id="id" value="<?= $id ?>" hidden>
                             <button class="boton-rojo" type="submit">Eliminar</button>

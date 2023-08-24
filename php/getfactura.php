@@ -94,11 +94,10 @@ function ImprimirFactura($datos){
 function RetornarFacturas()
 {
     try {
-        $user = $_SESSION['usuario'];
         //1. Estableciendo la conexion
         $conexion2 = Conecta();
         //2. Ejecutar la consulta
-        $resultado = $conexion2->query();
+        $resultado = $conexion2->query("SELECT id,fecha,total,usuario from maestro");
 
         if ($conexion2->error != "") {
             echo "Ocurrió un error al ejecutar la consulta : $conexion2->error";
@@ -113,24 +112,67 @@ function RetornarFacturas()
         Desconecta($conexion2);
     }
 }
+function ImprimirDatos($datos){
+    echo '<table class="table">';
+    echo "<tr>";
+    echo "<th>#Factura</th>";
+    echo "<th>Fecha</th>";
+    echo "<th>Total</th>";
+    echo "<th>Usuario</th>";
+    echo "<th>Acciones</th>";
+    echo "</tr>";
 
+    if($datos->num_rows > 0){
+        while ($row = $datos->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>{$row['id']}</td>";
+            echo "<td>{$row['fecha']}</td>";
+            echo "<td>{$row['total']}</td>";
+            echo "<td>{$row['usuario']}</td>";
+            echo "<td><a href=\"PedidosMostrar.php?id={$row['id']}\">Mostrar</a></td>";
+
+            echo "</tr>";
+        }
+    }else {
+        echo "<tr><td>No hay registros de platillos</td></tr>";
+    }
+    echo "</table>";
+}
 function RetorneFactura($id)
 {
     try {
         //1. Estableciendo la conexion
         $conexion2 = Conecta();
         //2. Ejecutar la consulta
-        $resultado = $conexion2->query("select id, cantidad from carrito where id = '$id'");
+        $resultado = $conexion2->query("SELECT m.id AS maestro_id, m.fecha, m.total, m.usuario, f.cantidad, f.precio, me.nombre AS menu_nombre
+        FROM maestro m
+        JOIN factura f ON m.id = f.id_maestro
+        JOIN menu me ON f.id_menu = me.id
+        where m.id = '$id';");
 
         if ($conexion2->error != "") {
             echo "Ocurrió un error al ejecutar la consulta : $conexion2->error";
         }
 
         //Mostrar los datos
-        $datos = $resultado->fetch_assoc();
-
-        echo '<label for="cantidad">Cantidad:  </label><br>';
-        echo '<input type="number" name="cantidad" id="cantidad" min="1" value="' . $datos["cantidad"] . '"><br>';
+        echo '<table class="table">';
+        echo "<tr>";
+        echo "<th>Cantidad</th>";
+        echo "<th>Nombre</th>";
+        echo "<th>Precio</th>";
+        echo "</tr>";
+        if ($resultado->num_rows > 0) {
+            while ($row = $resultado->fetch_assoc()) {
+                echo "<tr>";
+                echo "<td>{$row['cantidad']}</td>";
+                echo "<td>{$row['menu_nombre']}</td>";
+                echo "<td>{$row['precio']}</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td>No hay registros de platillos</td></tr>";
+        }
+        echo "</table>";
 
 
     } catch (\Throwable $th) {
@@ -143,26 +185,5 @@ function RetorneFactura($id)
         Desconecta($conexion2);
     }
 }
-function recogeGet($var, $m = "")
-{
-    //isset devuelve false null
-    if (!isset($_GET[$var])) {
-        //is_array 
-        $tmp = (is_array($m)) ? [] : "";
-    } elseif (!is_array($_GET[$var])) {
-        //trim recortar caracteres en blanco al inicio y al final
-        //htmlspecialchars convierte caracteres en entidades html
-        // ENT_COMPAT: predeterminado. Codificar comillas dobles
-        // ENT_QUOTES - Codifica comillas dobles como simples
-        // ENT_NOQUOTES - no codifica comillas
-        $tmp = trim(htmlspecialchars($_GET[$var], ENT_QUOTES, "UTF-8"));
-    } else {
-        $tmp = $_GET[$var];
-        //array_walk_recursive recorrer la matriz
-        array_walk_recursive($tmp, function (&$valor) {
-            $valor = trim(htmlspecialchars($valor, ENT_QUOTES, "UTF-8"));
-        });
-    }
-    return $tmp;
-}
+
 ?>

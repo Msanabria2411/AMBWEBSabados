@@ -5,6 +5,75 @@ if (isset($_SESSION['usuario'])) {
 	header("location: php/bienvenida.php");
 }
 
+
+require 'include/funciones.php';
+
+incluirTemplate('headerAdmin');
+$errores = [];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once 'include/funciones/recogeRequests.php';
+
+    $usuario = recogePost("usuario");
+    $nombre_completo= recogePost("nombre_completo");
+    $password = recogePost("password");
+    $email = recogePost("email");
+	$telefono = recogePost("telefono");
+
+    $usuarioOK = false;
+    $nombre_completoOK = false;
+    $password = false;
+    $emailOK = false;
+	$telefonoOK = false;
+
+	if ($usuario === "") {
+		$errores[] = "No se ingresó el usuario Correcto: el campo de usuario está vacío.";
+	} elseif (strlen($usuario) > 50) {
+		$errores[] = "El usuario ingresado es demasiado largo, debe tener 50 caracteres o menos.";
+	} else {
+		$usuarioOK = true;
+	}
+    if ($nombre_completo === "") {
+        $errores[] = "No se ingresó el Nombre Completo Correcto: el campo de usuario está vacío";
+    } else {
+        $nombre_completoOK = true;
+    }
+
+	if ($password === "") {
+		$errores[] = "No se ingresó una contraseña. Por favor, ingrese una contraseña.";
+	} elseif (strlen($password) < 8) {
+		$errores[] = "La contraseña es demasiado corta. Debe tener al menos 8 caracteres."; // Agregue que sea de minimo 8 caracteres por seguridad
+	} else {
+		$passwordOk = true;
+	}
+
+    if ($email === "") {
+    $errores[] = "No se ingresó un correo electrónico. Por favor, ingrese un correo electrónico.";
+	} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errores[] = "El formato del correo electrónico es inválido.";
+	} elseif (strpos($email, '@') === false) {
+    $errores[] = "El correo electrónico debe contener al menos un símbolo '@'.";
+	} else {
+    $emailOK = true;
+	}
+	
+	if ($telefono === "") {
+		$errores[] = "No se ingresó un número de teléfono. Por favor, ingrese un número de teléfono.";
+	} elseif (strlen($telefono) !== 8 || !ctype_digit($telefono)) {
+		$errores[] = "El número de teléfono debe tener exactamente 8 dígitos.";
+	} else {
+		$telefonoOK = true;
+	}
+	
+
+    if ($usuarioOK && $nombre_completoOK && $passwordOk && $emailOK && $telefonoOK) {
+        //inserción de datos
+        require_once 'php/get_data.php';
+        if (registroMenu($usuario, $nombre_completo, $password,$email,$telefono )) {
+            header("Location: Login.php");
+        }
+    }
+}
 ?>
 
 
@@ -38,7 +107,7 @@ if (isset($_SESSION['usuario'])) {
 						<h3 class="mb-4 text-center">Registar Cuenta</h3>
 						<!-- <form action="#" class="signin-form"> -->
 						<!-- Validar Esto -->
-						<form action="php/registro_usuario_be.php" method="POST" class="formulario__register">
+						<form  method="POST" class="formulario__register"> <!-- Se quito el action -->
 
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Usuario" name="usuario">

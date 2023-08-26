@@ -79,7 +79,7 @@
                         <li><a href="Inicio.php#Reservation">Puntúanos</a></li>
                         <li><a href="Inicio.php#contact">Contactenos</a></li>
                         <li><a href="Carrito.php">Carrito</a></li>
-
+                      
                     </ul>
                     <!-- /nav -->
                     <!-- button nav -->

@@ -56,7 +56,7 @@
 						</div>
 								</div>
 								<div class="w-50 text-md-right">
-									<a href="RecuperarContraseña.php" style="color: #fff">'¿Olvido su contraseña?'</a>
+									<a href="InicioLogOut.php" style="color: #fff">Volver</a>
 								</div>
 	            </div>
 	          </form>

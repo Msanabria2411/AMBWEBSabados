@@ -53,15 +53,16 @@ incluirTemplate('headerMain');
                             $id = recogeGet('id');
                             RetorneItem($id);
                             ?>
-
+                            <br>
                             <input type="text" name="id" id="id" value="<?= $id ?>" hidden>
-                            <button class="boton-rojo" type="submit">Actualizar</button>
+                            <button class="main-button" type="submit">Actualizar</button>
                         </form>
+                        <br>
                         <form action="php/eliminarItem.php" method="post">
                             <!-- novalidate cuando no se quiere la validación html5 -->
 
                             <input type="text" name="id" id="id" value="<?= $id ?>" hidden>
-                            <button class="boton-rojo" type="submit">Eliminar</button>
+                            <button class="main-button" type="submit">Eliminar</button>
                         </form>
                     </div>
 

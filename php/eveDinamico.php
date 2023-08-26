@@ -29,11 +29,15 @@ function ImprimirDatosEventos($datos) {
             echo '<div class="event-img">'; 
             echo '<img src="/WebStyles2/img/event01.jpg" alt="">'; 
             echo '<div class="event-day">';
-            echo "<span>{$row['fecha']}</span>"; 
+            $fecha=$row['fecha'];
+            $fechaf=date("m-d",strtotime($fecha));
+            echo "<span>{$fechaf}</span>"; 
             echo '</div>';
             echo '</div>';
             echo '<div class="event-content">';
-            echo "<p><i class='fa fa-clock-o'></i>{$row['hora']}</p>";
+            $hora=$row['hora'];
+            $horaf=date("H:i",strtotime($hora));
+            echo "<p><i class='fa fa-clock-o'></i>{$horaf}</p>";
             echo "<h3><a href=''></a>{$row['nombre']}</h3>";
             echo "<p>{$row['descripcion']}</p>";
             echo '</div>';

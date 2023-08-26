@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div>
                     <form class="total"method="post">
                        
-                        <button class="main-button" type="submit">Pagar</button>
+                        <button class="main-button" type="submit">Pedir</button>
                     </form>
                    
                     

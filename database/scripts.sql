@@ -1,4 +1,3 @@
--- TABLA USUARIO
 CREATE TABLE `carrito` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cantidad` int(11) DEFAULT NULL,

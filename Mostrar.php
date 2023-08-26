@@ -16,30 +16,59 @@ if (!isset($_SESSION['usuario'])) {
 require 'include/funciones.php';
 
 incluirTemplate('headerAdmin');
-
+require_once 'include/funciones/recogeRequests.php';
+$id = recogeGet('id');
+$errores = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once 'include/funciones/recogeRequests.php';
+    $usuario = recogePost("user");
+    $nombre_completo= recogePost("nombre_completo");
+    $email = recogePost("email");
+	$telefono = recogePost("telefono");
+    $tipos = recogePost("tipos");
 
-    $id = recogePost("id");
-   
+    $usuarioOK = false;
+    $nombre_completoOK = false;
+    $emailOK = false;
+	$telefonoOK = false;
 
-    $idOK = false;
-   
-
-	if ($id === "") {
-		$errores[] = "No se ingresó el Id Correcto: el campo de Id está vacío.";
-	} elseif (strlen($id) > 50) {
-		$errores[] = "El id ingresado es demasiado largo, debe tener 50 caracteres o menos.";
+	if ($usuario === "") {
+		$errores[] = "No se ingresó el usuario Correcto: el campo de usuario está vacío.";
+	} elseif (strlen($usuario) > 50) {
+		$errores[] = "El usuario ingresado es demasiado largo, debe tener 50 caracteres o menos.";
 	} else {
-		$idOK = true;
+		$usuarioOK = true;
+	}
+    if ($nombre_completo === "") {
+        $errores[] = "No se ingresó el Nombre Completo Correcto: el campo de usuario está vacío";
+    } else {
+        $nombre_completoOK = true;
     }
 
-    if ($idOK) {
+    if ($email === "") {
+    $errores[] = "No se ingresó un correo electrónico. Por favor, ingrese un correo electrónico.";
+	} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errores[] = "El formato del correo electrónico es inválido.";
+	} elseif (strpos($email, '@') === false) {
+    $errores[] = "El correo electrónico debe contener al menos un símbolo '@'.";
+	} else {
+    $emailOK = true;
+	}
+	
+	if ($telefono === "") {
+		$errores[] = "No se ingresó un número de teléfono. Por favor, ingrese un número de teléfono.";
+	} elseif (strlen($telefono) !== 8 || !ctype_digit($telefono)) {
+		$errores[] = "El número de teléfono debe tener exactamente 8 dígitos.";
+	} else {
+		$telefonoOK = true;
+	}
+	
+
+    if ($usuarioOK && $nombre_completoOK && $emailOK && $telefonoOK) {
         //inserción de datos
         require_once 'php/get_data.php';
-        if (ActualizarUsuario($id)) {
-            header("Location: Login.php");
+        if (ActualizarUsuario($usuario, $nombre_completo,$email,$telefono,$tipos,$id)) {
+            header("Location: Administracion.php");
         }
     }
 }
@@ -68,21 +97,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 
-                        <form action="php/actualizar_usuario_be.php" method="post">
+                        <form  method="post">
                             <?php
                             require_once 'php/get_data.php';
-                            $id = recogeGet('id');
+                           
                             RetorneUsuario($id);
                             ?>
 
                             <input type="text" name="id" id="id" value="<?= $id ?>" hidden>
-                            <button class="boton-rojo" type="submit">Actualizar</button>
+                            <button class="main-button" type="submit">Actualizar</button>
                         </form>
-                        <form method="post">
+                        <br>
+                        <form action="php/eliminar_usuario_be.php" method="post">
                             <!-- Borramos el action -->
 
                             <input type="text" name="id" id="id" value="<?= $id ?>" hidden>
-                            <button class="boton-rojo" type="submit">Eliminar</button>
+                            <button class="main-button" type="submit">Eliminar</button>
                         </form>
                     </div>
 

@@ -1,5 +1,15 @@
 <?php
 session_start();
+if (!isset($_SESSION['usuario'])) {
+    echo '
+            <script>
+            alert("Debes de Iniciar Sesion");
+            window.location = "Login.php";
+            </script>
+        ';
+    session_destroy();
+    die();
+}
 include 'conexion_be.php';
 require_once '../include/funciones/recogeRequests.php';
 $idM = recogeGet('id');

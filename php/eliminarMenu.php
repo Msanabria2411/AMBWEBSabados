@@ -8,14 +8,14 @@
  //Password Encryption  
 
 
-    $query = "DELETE FROM menu WHERE ID = $id;";
-
+    $query = "DELETE FROM menu WHERE ID = '$id' ";
+    $query2 = "DELETE FROM carrito WHERE id_menu = '$id' ";
  //Verificar que el correo no se repita en la
   
-    
+ $ejecutar2 = mysqli_query($conexion2, $query2);
     $ejecutar = mysqli_query($conexion2, $query);
 
-    if($ejecutar){
+    if($ejecutar && $ejecutar2){
         echo '
             <script>
                 alert("Platillo Eliminado exitosamente");
@@ -25,8 +25,8 @@
     }else{
         echo '
             <script>
-                alert("Intentalo de nuevo, platillo no elimino");
-                window.location = "../MenuMostrar.php";
+                alert("Se debe cancelar la pedido para eliminar el platillo");
+                window.location = "../MenuMostrar.php?id='.$id.'";
             </script>    
         ';
     }

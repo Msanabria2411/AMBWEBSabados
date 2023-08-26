@@ -30,24 +30,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fechaOK = false;
     $horaOK = false;
     if ($nombre === "") {
-        $errores[] = "No se digitó el nombre del platillo";
+        $errores[] = "No se digitó el nombre del evento";
     } else {
         $nombreOK = true;
     }
 
     if ($descripcion === "") {
-        $errores[] = "No se digitó ninguna descriocion";
+        $errores[] = "No se digitó ninguna descripcion";
     } else {
         $descripcionOK = true;
     }
 
     if ($fecha === "") {
-        $errores[] = "No se digitó el precio del platillo";
+        $errores[] = "No se asigno la fecha";
     } else {
         $fechaOK = true;
     }
     if ($hora === "") {
-        $errores[] = "Sin tipo";
+        $errores[] = "No se asigno la hora";
     } else {
         $horaOK = true;
     }
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <input type="time" id="hora"  name="hora">
                         </div>
                         <div class="form-group">
-                            <button  type="submit" >Agregar</button>
+                            <button class="main-button" type="submit" >Agregar</button>
                         </div>
 
 

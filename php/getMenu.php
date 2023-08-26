@@ -137,7 +137,7 @@ function RetornePlatillo($id) {
          <option value="2"'.isSelected($datos["tipo"], "2").'>Bebida</option>
          <option value="3"'.isSelected($datos["tipo"], "3").'>Plato Fuerte</option>
          <option value="4"'.isSelected($datos["tipo"], "4").'>Postre</option>
-         </select><br>' ;
+         </select><br><br>' ;
 
     } catch (\Throwable $th) {
         //echo $th;

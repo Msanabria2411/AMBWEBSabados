@@ -85,12 +85,8 @@
                     <!-- /nav -->
                     <!-- button nav -->
                     <ul class="cta-nav">
-                        <?php
-                        if($_SESSION['tipo']=="1"){
-                           echo '<li><a href="Administracion.php" class="main-button">Administrar</a></li>' ;
-                        }
-                        ?>   
-                        <li><a href="php/cerrar_sesion.php" class="main-button">Cerrar Sessión</a></li>
+                        
+                        <li><a href="Login.php" class="main-button">Iniciar Sesión</a></li>
 
                     </ul>
                     <!-- button nav -->
@@ -330,7 +326,7 @@
                             <h4 id="Reservation" class="sub-title">Valoranos</h4>
                             <h2 class="title white-text">Puntua nuestos sevicios</h2>
                         </div>
-                    <form action="php/registroPuntuacion.php" method="post">
+                    <form action="Login.php" method="post">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="name">Servicio</label>

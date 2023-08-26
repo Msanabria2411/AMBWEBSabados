@@ -1,14 +1,5 @@
 ﻿<?php
-session_start();
 
-if (isset($_SESSION['usuario'])) {
-	header("location: php/bienvenida.php");
-}
-
-
-require 'include/funciones.php';
-
-incluirTemplate('headerAdmin');
 $errores = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -22,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $usuarioOK = false;
     $nombre_completoOK = false;
-    $password = false;
+    $passwordOk = false;
     $emailOK = false;
 	$telefonoOK = false;
 
@@ -90,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<link rel="stylesheet" href="WebStyles3/css/style.css">
+	<link type="text/css" rel="stylesheet" href="CSS/tablestyles.css" />
 
 </head>
 
@@ -147,7 +139,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 								</div>
 							</div>
 						</form>
-
+						<?php foreach($errores as $error): ?>
+                   		 <div class="alerta error">
+                        <?php echo $error; ?>
+                    		</div>
+                    	<?php endforeach; ?>
 					</div>
 				</div>
 			</div>

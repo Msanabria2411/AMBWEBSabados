@@ -27,7 +27,12 @@ function registroFactura($usuario)
         if ($conexion2->error != "") {
             echo "Ocurrió un error al ejecutar la consulta : $conexion2->error";
         }
-        $retorno = true;
+        if($_SESSION['ide']!="0" ){
+            $retorno = true;
+        }else{
+            $retorno = false;
+        }
+        
 
     } catch (\Throwable $th) {
 
@@ -104,7 +109,7 @@ function RetornarFacturas()
         }
 
         //Mostrar los datos
-        ImprimirDatos($resultado);
+        ImprimirDatos3($resultado);
 
     } catch (\Throwable $th) {
 
@@ -112,7 +117,7 @@ function RetornarFacturas()
         Desconecta($conexion2);
     }
 }
-function ImprimirDatos($datos){
+function ImprimirDatos3($datos){
     echo '<table class="table">';
     echo "<tr>";
     echo "<th>#Factura</th>";

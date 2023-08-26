@@ -32,24 +32,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fechaOK = false;
     $horaOK = false;
     if ($nombre === "") {
-        $errores[] = "No se digitó el nombre del platillo";
+        $errores[] = "No se digitó el nombre del evento";
     } else {
         $nombreOK = true;
     }
 
     if ($descripcion === "") {
-        $errores[] = "No se digitó ninguna descriocion";
+        $errores[] = "No se digitó ninguna descripcion";
     } else {
         $descripcionOK = true;
     }
 
     if ($fecha === "") {
-        $errores[] = "No se digitó el precio del platillo";
+        $errores[] = "No se asigno la fecha";
     } else {
         $fechaOK = true;
     }
     if ($hora === "") {
-        $errores[] = "Sin tipo";
+        $errores[] = "No se asigno la hora";
     } else {
         $horaOK = true;
     }
@@ -90,13 +90,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         require_once 'php/getEve.php';
                         RetorneEve($id);
                         ?>
-                        <button class="boton-rojo" type="submit">Actualizar</button>
+                        <button class="main-button" type="submit">Actualizar</button>
                     </form>
+                    <br>
                     <form action="php/eliminarEve.php" method="post">
                         <!-- novalidate cuando no se quiere la validación html5 -->
 
                         <input type="text" name="id" id="id" value="<?= $id ?>" hidden>
-                        <button class="boton-rojo" type="submit">Eliminar</button>
+                        <button class="main-button" type="submit">Eliminar</button>
                     </form>
                     <?php foreach ($errores as $error): ?>
                         <div class="alerta error">

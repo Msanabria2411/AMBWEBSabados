@@ -49,7 +49,7 @@ $id = recogeGet('id');
                             <!-- novalidate cuando no se quiere la validación html5 -->
 
                             <input type="text" name="id" id="id" value="<?= $id ?>" hidden>
-                            <button class="boton-rojo" type="submit">Eliminar</button>
+                            <button class="main-button" type="submit">Eliminar</button>
                         </form>
                     </div>
 

@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </select>
                         </div>
                         <div class="form-group">
-                            <button type="submit" >Agregar</button>
+                            <button class="main-button" type="submit" >Agregar</button>
                         </div>
 
 

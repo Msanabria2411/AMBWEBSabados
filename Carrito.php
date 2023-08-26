@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         require_once 'php/getFactura.php';
         if (registroFactura($usuario)) {
             header("Location: Factura.php");
+        }else{
+            header("Location: Carrito.php");
         }
     }
 
@@ -52,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php
                 require_once 'php/getCarrito.php';
                 RetornarCarrito();
+                
                 ?>
                 <div>
                     <form class="total"method="post">

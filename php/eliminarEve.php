@@ -18,14 +18,14 @@
     if($ejecutar){
         echo '
             <script>
-                alert("Platillo Eliminado exitosamente");
+                alert("Evento Eliminado exitosamente");
                 window.location = "../Eventos.php";
             </script>    
         ';
     }else{
         echo '
             <script>
-                alert("Intentalo de nuevo, platillo no elimino");
+                alert("Intentalo de nuevo, evento no eliminado");
                 window.location = "../EveMostrar.php";s
             </script>    
         ';

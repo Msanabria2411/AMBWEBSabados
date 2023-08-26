@@ -116,14 +116,14 @@ function RetorneEve($id) {
         //Mostrar los datos
         $datos = $resultado->fetch_assoc();
  
-   echo '<label for="nombre">Nombre:  </label>';
+   echo '<label for="nombre">Nombre:  </label><br>';
    echo '<input type="text" name="nombre" id="nombre" value="'.$datos["nombre"].'"><br>';  
    echo '<label for="descripcion">Descripción: </label><br>';
    echo '<textarea name="descripcion" id="descripcion" rows="4" cols="50" >'.$datos["descripcion"].'</textarea><br>';
-   echo '<label for="fecha">Fecha:</label>';  
+   echo '<label for="fecha">Fecha:</label><br>';  
    echo '<input type="date" name="fecha" id="precio" value="'.$datos["fecha"].'"><br>'; 
-   echo '<label for="hora">Hora:</label>';  
-   echo '<input type="time" name="hora" id="hora" value="'.$datos["hora"].'"><br>'; 
+   echo '<label for="hora">Hora:</label><br>';  
+   echo '<input type="time" name="hora" id="hora" value="'.$datos["hora"].'"><br><br>'; 
 
     } catch (\Throwable $th) {
         //echo $th;

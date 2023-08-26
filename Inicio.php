@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //inserción de datos
         require_once 'php/getPuntuacion.php';
         if (registroPuntuacion($r1, $r2, $r3,$user)) {
-            header("Location: Inicio.php");
+            header("Location: Inicio.php#Reservation");
         }
     }
 }
@@ -316,7 +316,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <input type="radio" id="star3C" name="ratingC" value="3" />
                                     <label for="star3C">&#9733;</label>
                                     <input type="radio" id="star4C" name="ratingC" value="2" />
-                                    <label for="star4">&#9733;</label>
+                                    <label for="star4C">&#9733;</label>
                                     <input type="radio" id="star5C" name="ratingC" value="1" />
                                     <label for="star5C">&#9733;</label>
                                 </div>
